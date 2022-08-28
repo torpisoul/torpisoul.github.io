@@ -584,10 +584,3 @@ rect {
   height: 100%;
   opacity: 0%;
 }
-/* search filter - god page*/
-.is-hidden { display: none; }
-
-label {
-  color: white;
-}
-/* end of search filter */
