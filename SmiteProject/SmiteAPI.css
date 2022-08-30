@@ -379,7 +379,7 @@ h1 {
   margin: 1rem;
 }
 .icon-assassin {
-  background-image: url(images/icons/icon-assassin.svg);
+  background-image: url(Images/icons/icon-assassin.svg);
   background-size: 2rem 2rem;
   width: 2rem;
   height: 2rem;
@@ -388,7 +388,7 @@ h1 {
   background-image: url(images/icons-coloured/icon-assassin.svg)
 }
 .icon-guardian {
-  background-image: url(images/icons/icon-guardian.svg);
+  background-image: url(Images/icons/icon-guardian.svg);
   background-size: 2rem 2rem;
   width: 2rem;
   height: 2rem;
@@ -397,7 +397,7 @@ h1 {
   background-image: url(images/icons-coloured/icon-guardian.svg)
 }
 .icon-hunter {
-  background-image: url(images/icons/icon-hunter.svg);
+  background-image: url(Images/icons/icon-hunter.svg);
   background-size: 2rem 2rem;
   width: 2rem;
   height: 2rem;
@@ -406,7 +406,7 @@ h1 {
   background-image: url(images/icons-coloured/icon-hunter.svg)
 }
 .icon-mage {
-  background-image: url(images/icons/icon-mage.svg);
+  background-image: url(Images/icons/icon-mage.svg);
   background-size: 2rem 2rem;
   width: 2rem;
   height: 2rem;
@@ -415,7 +415,7 @@ h1 {
   background-image: url(images/icons-coloured/icon-mage.svg)
 }
 .icon-warrior {
-  background-image: url(images/icons/icon-warrior.svg);
+  background-image: url(Images/icons/icon-warrior.svg);
   background-size: 2rem 2rem;
   width: 2rem;
   height: 2rem;
@@ -424,7 +424,7 @@ h1 {
   background-image: url(images/icons-coloured/icon-warrior.svg)
 }
 .icon-norse {
-  background-image: url(images/icons/icon-norse.svg);
+  background-image: url(Images/icons/icon-norse.svg);
   background-size: 2rem 2rem;
   width: 2rem;
   height: 2rem;
@@ -433,7 +433,7 @@ h1 {
   background-image: url(images/icons-coloured/icon-norse.svg)
 }
 .icon-greek {
-  background-image: url(images/icons/icon-greek.svg);
+  background-image: url(Images/icons/icon-greek.svg);
   background-size: 2rem 2rem;
   width: 2rem;
   height: 2rem;
@@ -442,7 +442,7 @@ h1 {
   background-image: url(images/icons-coloured/icon-greek.svg)
 }
 .icon-maya {
-  background-image: url(images/icons/icon-maya.svg);
+  background-image: url(Images/icons/icon-maya.svg);
   background-size: 2rem 2rem;
   width: 2rem;
   height: 2rem;
@@ -451,7 +451,7 @@ h1 {
   background-image: url(images/icons-coloured/icon-maya.svg)
 }
 .icon-chinese {
-  background-image: url(images/icons/icon-chinese.svg);
+  background-image: url(Images/icons/icon-chinese.svg);
   background-size: 2rem 2rem;
   width: 2rem;
   height: 2rem;
@@ -460,7 +460,7 @@ h1 {
   background-image: url(images/icons-coloured/icon-chinese.svg)
 }
 .icon-hindu {
-  background-image: url(images/icons/icon-hindu.svg);
+  background-image: url(Images/icons/icon-hindu.svg);
   background-size: 2rem 2rem;
   width: 2rem;
   height: 2rem;
@@ -469,7 +469,7 @@ h1 {
   background-image: url(images/icons-coloured/icon-hindu.svg)
 }
 .icon-egyptian {
-  background-image: url(images/icons/icon-egyptian.svg);
+  background-image: url(Images/icons/icon-egyptian.svg);
   background-size: 2rem 2rem;
   width: 2rem;
   height: 2rem;
@@ -478,7 +478,7 @@ h1 {
   background-image: url(images/icons-coloured/icon-egyptian.svg)
 }
 .icon-roman {
-  background-image: url(images/icons/icon-roman.svg);
+  background-image: url(Images/icons/icon-roman.svg);
   background-size: 2rem 2rem;
   width: 2rem;
   height: 2rem;
@@ -487,7 +487,7 @@ h1 {
   background-image: url(images/icons-coloured/icon-roman.svg)
 }
 .icon-japanese {
-  background-image: url(images/icons/icon-japanese.svg);
+  background-image: url(Images/icons/icon-japanese.svg);
   background-size: 2rem 2rem;
   width: 2rem;
   height: 2rem;
@@ -496,7 +496,7 @@ h1 {
   background-image: url(images/icons-coloured/icon-japanese.svg)
 }
 .icon-celtic {
-  background-image: url(images/icons/icon-celtic.svg);
+  background-image: url(Images/icons/icon-celtic.svg);
   background-size: 2rem 2rem;
   width: 2rem;
   height: 2rem;
@@ -505,7 +505,7 @@ h1 {
   background-image: url(images/icons-coloured/icon-celtic.svg)
 }
 .icon-slavic {
-  background-image: url(images/icons/icon-slavic.svg);
+  background-image: url(Images/icons/icon-slavic.svg);
   background-size: 2rem 2rem;
   width: 2rem;
   height: 2rem;
@@ -514,7 +514,7 @@ h1 {
   background-image: url(images/icons-coloured/icon-slavic.svg)
 }
 .icon-voodoo {
-  background-image: url(images/icons/icon-voodoo.svg);
+  background-image: url(Images/icons/icon-voodoo.svg);
   background-size: 2rem 2rem;
   width: 2rem;
   height: 2rem;
@@ -523,7 +523,7 @@ h1 {
   background-image: url(images/icons-coloured/icon-voodoo.svg)
 }
 .icon-polynesian {
-  background-image: url(images/icons/icon-polynesian.svg);
+  background-image: url(Images/icons/icon-polynesian.svg);
   background-size: 2rem 2rem;
   width: 2rem;
   height: 2rem;
@@ -532,49 +532,49 @@ h1 {
   background-image: url(images/icons-coloured/icon-polynesian.svg)
 }
 .icon-great-old-ones {
-  background-image: url(images/icons/icon-great-old-ones.png);
+  background-image: url(Images/icons/icon-great-old-ones.png);
   background-size: 2rem 2rem;
   width: 2rem;
   height: 2rem;
 }
 .icon-babylonian {
-  background-image: url(images/icons/icon-babylonian.png);
+  background-image: url(Images/icons/icon-babylonian.png);
   background-size: 2rem 2rem;
   width: 2rem;
   height: 2rem;
 }
 .icon-arthurian {
-  background-image: url(images/icons/icon-arthurian.png);
+  background-image: url(Images/icons/icon-arthurian.png);
   background-size: 2rem 2rem;
   width: 2rem;
   height: 2rem;
 }
 .icon-yoruba {
-  background-image: url(images/icons/icon-yoruba.png);
+  background-image: url(Images/icons/icon-yoruba.png);
   background-size: 2rem 2rem;
   width: 2rem;
   height: 2rem;
 }
 .icon-melee {
-  background-image: url(images/icons/icon-melee.svg);
+  background-image: url(Images/icons/icon-melee.svg);
   background-size: 2rem 2rem;
   width: 2rem;
   height: 2rem;
 }
 .icon-ranged {
-  background-image: url(images/icons/icon-ranged.svg);
+  background-image: url(Images/icons/icon-ranged.svg);
   background-size: 2rem 2rem;
   width: 2rem;
   height: 2rem;
 }
 .icon-physical {
-  background-image: url(images/icons/icon-physical.svg);
+  background-image: url(Images/icons/icon-physical.svg);
   background-size: 2rem 2rem;
   width: 2rem;
   height: 2rem;
 }
 .icon-magical {
-  background-image: url(images/icons/icon-magical.svg);
+  background-image: url(Images/icons/icon-magical.svg);
   background-size: 2rem 2rem;
   width: 2rem;
   height: 2rem;
