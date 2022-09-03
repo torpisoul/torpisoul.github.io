@@ -184,26 +184,14 @@ footer {
   grid-template-rows: auto;
   grid-gap: 2rem;
 }
-@media only screen and (min-width: 500px) {
-  .band {
-      grid-template-columns: 1fr 1fr;
- }
-  .item-1 {
-      grid-column: 1/ span 2;
- }
-  .item-1 h1 {
-      font-size: 3rem;
- }
+.home-card {
+  
 }
-@media only screen and (min-width: 850px) {
-  .band {
-      grid-template-columns: repeat(4, 1fr);
- }
+.main-item {
+  grid-column: 1/ span 2;
 }
-@media only screen and (max-width: 700px) {
-  .navbar-img {
-    visibility: hidden;
-   }
+.main-item h1 {
+  font-size: 3rem;
 }
 /* card */
 .card {
@@ -284,23 +272,6 @@ h1 {
   grid-template-rows: auto;
   grid-gap: 1rem;
 }
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-  .band-god {
-    grid-template-columns: 1fr;
-  }
-}
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-  .band-god {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
-  .band-god {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  }
   .new.god-class { 
     grid-column: 1/ span 2;
     grid-row: 1/ span 2;
@@ -320,7 +291,6 @@ h1 {
     background-size: 4rem;
     margin: 0.5rem;
   }
-}
 .assassin > .card {
   --bs-card-border-color: var(--assassin);
 }

@@ -1,0 +1,58 @@
+@media screen and (min-width: 576px) {
+    /* General */
+    header {
+        font-size: 10rem;
+    }
+    .navbar a,
+    a.navbar.nav-item.active {
+        font-size: 5rem;
+    }
+    /* Home */
+    .navbar-img {
+        visibility: hidden;
+    }
+    .band {
+        grid-template-columns: 1fr 1fr;
+        width: 95%;
+    }
+    .main-item > a > article > h1,
+    .home-card > a > article > h1 {
+        font-size: 5rem;
+    }
+    .main-item > a > article > span,
+    .home-card > a > article > span {
+        font-size: 3rem;
+    }
+    .card .thumb {
+        padding-bottom: 46%;
+    }
+    /* Gods */
+    .band-god {
+        grid-template-columns: minmax(auto, 1fr);
+        width: 95%;
+    }
+    .new.god-class { 
+        grid-column: 1;
+        grid-row: 1;
+    }
+    .new > .god-card,
+    .new > .god-card > .god-thumb,
+    .god-card,
+    .god-card > .god-thumb {
+    height: 30rem;
+    }
+    .new > div > article > h1,
+    div > article > h1 {
+    font-size: 10rem;
+    }
+    .new > div > article > span,
+    .god-thumb-text > span {
+    font-size: 6rem;
+    }
+    .new > div > div.god-thumb-icon > svg,
+    div > div.god-thumb-icon > svg {
+    height: 6rem;
+    width: 6rem;
+    background-size: 6rem 6rem;
+    }
+}

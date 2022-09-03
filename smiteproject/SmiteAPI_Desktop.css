@@ -1,0 +1,5 @@
+@media screen and (min-width: 992px) {
+    .band-god {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
