@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1">
 		<title>Project Athena</title>
 		<!--Responsive CSS Library-->
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
@@ -15,7 +15,9 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<!--Custom CSS-->
 		<link rel="stylesheet" media="all" href="SmiteAPI.css">
-		<link rel="stylesheet" media="screen and (min-width: 576px" href="SmiteAPI_Mobile.css">
+		<link rel="stylesheet" media="screen and (min-width: 992px) and (max-width: 1200px)" href="SmiteAPI_Desktop.css">
+		<link rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 991px)" href="SmiteAPI_Tablet.css">
+		<link rel="stylesheet" media="screen and (max-width: 767px)" href="SmiteAPI_Mobile.css">
 		<img src="Images/smite-logo.png" class="navbar-img">
 		
 		<div id="root"></div>
@@ -39,7 +41,7 @@
 		<div class="buffer"></div>
 		<div class="support-grid"></div>
 		<div class="band">
-		<div class="main-item">
+		<div class="main-item top-card">
 			<a href="SmiteAPI_Coach.html" class="card">
 				<div class="thumb" style="background-image: url(Images/GodBrain.jpg);"></div>
 				<article>
@@ -48,7 +50,7 @@
 				</article>
 			</a>
 		</div>
-		<div class="home-card">
+		<div class="top-card">
 			<a href="#" class="card">
 				<div class="thumb" style="background-image: url(Images/PatchNotes.png);"></div>
 				<article>
@@ -57,7 +59,7 @@
 				</article>
 			</a>
 		</div>
-		<div class="home-card">
+		<div class="top-card">
 			<a href="#" class="card">
 				<div class="thumb" style="background-image: url(Images/eSports.png);"></div>
 				<article>
@@ -66,7 +68,7 @@
 				</article>
 			</a>
 		</div>
-		<div class="home-card">
+		<div class="bottom-card">
 			<a href="SmiteAPI_Gods.html" class="card">
 				<div class="thumb" style="background-image: url(Images/AllGods.jpg);"></div>
 				<article>
@@ -75,7 +77,7 @@
 				</article>
 			</a>
 		</div>
-		<div class="home-card">
+		<div class="bottom-card">
 			<a href="SmiteAPI_Items.html" class="card">
 				<div class="thumb" style="background-image: url(Images/aegis.png);"></div>
 				<article>
@@ -84,7 +86,7 @@
 				</article>
 			</a>
 		</div>
-		<div class="home-card">
+		<div class="bottom-card">
 			<a href="SmiteAPI_Builds.html" class="card">
 				<div class="thumb" style="background-image: url(Images/builds.png);"></div>
 				<article>
@@ -93,7 +95,7 @@
 				</article>
 			</a>
 		</div>
-		<div class="home-card">
+		<div class="bottom-card">
 			<a href="SmiteAPI_Players.html" class="card">
 				<div class="thumb" style="background-image: url(Images/players.jpg);"></div>
 				<article>

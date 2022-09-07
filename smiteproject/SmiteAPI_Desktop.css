@@ -1,4 +1,4 @@
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 992px) and (max-width: 1200px) {
     .band-god {
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
