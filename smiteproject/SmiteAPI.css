@@ -48,9 +48,7 @@
  --physical: black;
  --ranged: white;
 
-  font-family: 'Montserrat', sans-serif; 
-
-  overflow-x: hidden;
+  font-family: 'Montserrat', sans-serif;
 }
 :root::-webkit-scrollbar {
   display: none;
@@ -58,9 +56,13 @@
 * {
   box-sizing: border-box;
 }
+html, body {
+  overflow-x: hidden;
+}
 /* Starry Sky background */
 body {
   background: linear-gradient(to left, #05111e 0%, black 100%);
+  position: relative;
 }
 #sky {
   width: 100vw;
