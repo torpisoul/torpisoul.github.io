@@ -1,3 +1,4 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
 :root {
   font-size: 62.5%;
   --white: white;
@@ -107,6 +108,7 @@ header {
   text-shadow: 0.1rem 0.1rem 1rem var(--gold), -0.1rem 0.1rem 1rem var(--gold);
   color: white;
 }
+/* Navbar */
 .navbar {
   overflow: hidden;
   padding:0%;
@@ -143,6 +145,12 @@ a.navbar.nav-item.active {
   margin-right: -18rem;
   margin-top: 1.2rem;
 }
+i {
+  vertical-align: top;
+  margin-left: 0.4rem;
+  font-size: 1rem;
+}
+/* end of navbar */
 img, svg {
   display: block;
 }
