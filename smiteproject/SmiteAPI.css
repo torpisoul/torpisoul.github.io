@@ -190,7 +190,7 @@ footer {
 }
 /* Card grid */
 .band {
-  width: 90%;
+  width: 95%;
   max-width: 1240px;
   margin: 0 auto;
   display: grid;
