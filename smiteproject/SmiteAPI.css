@@ -62,7 +62,7 @@
   box-sizing: border-box;
 }
 html, body {
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 /* Starry Sky background */
 body {
@@ -115,8 +115,11 @@ header {
 /* Navbar */
 .navbar {
   overflow: hidden;
-  padding:0%;
+  padding: 0%;
   vertical-align: middle;
+}
+.sticky-top {
+  background: linear-gradient(to left, #05111e 0%, black 100%);
 }
 .navbar-nav {
   display: inline-block;
@@ -196,7 +199,7 @@ footer {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: auto;
-  grid-gap: 2rem;
+  grid-gap: 1rem;
 }
 .main-item {
   grid-column: 1/ span 2;
@@ -227,7 +230,7 @@ footer {
   padding-bottom: 60%;
 }
 .bottom-card .card .thumb {
-  padding-top: 45%;
+  padding-bottom: 60%;
 }
 .god-card {
   background: white;
@@ -245,7 +248,7 @@ footer {
 .card:hover, .god-card:hover {
   top: -0.2rem;
   box-shadow: 0 0 2rem var(--gold);
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 .card article {
   padding:2rem;
@@ -288,6 +291,7 @@ h1 {
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: auto;
   grid-gap: 1rem;
+  padding-top: 3rem;
 }
   .new.god-class { 
     grid-column: 1/ span 2;
