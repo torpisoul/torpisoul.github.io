@@ -9,6 +9,9 @@
 		<!--Responsive CSS Library-->
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 		
+		<!--JQuery-->
+		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
 		<!--Custom CSS-->
 		<link rel="stylesheet" media="all" href="SmiteAPI.css">
 		<link rel="stylesheet" media="screen and (min-width: 992px) and (max-width: 1200px)" href="SmiteAPI_Desktop.css">
@@ -16,7 +19,7 @@
 		<link rel="stylesheet" media="screen and (max-width: 767px)" href="SmiteAPI_Mobile.css">
 		
 	<!--Starry Sky - requires Anime JS-->
-	<div id="root"></div>
+	<!--<div id="root"></div>-->
 	<header>Project Athena</header>
 
 </head>
@@ -34,3759 +37,1314 @@
 	<!-- TODO -->
 
 	<!--Add search filter (name, title, class, pantheon, attack range, attack type)-->
+	<div id="godFilterButtons" class="navbar">
+		<div>
+		<span class="filterText">Role:</span>
+		<button class="btn" onClick="filterSelection('assassinFilter')">
+			<svg class="icon-assassin" id="iconButton"></svg>
+		</button>
+		<button class="btn" onClick="filterSelection('guardianFilter')">
+			<svg class="icon-guardian" id="iconButton"></svg>
+		</button>
+		<button class="btn" onClick="filterSelection('hunterFilter')">
+			<svg class="icon-hunter" id="iconButton"></svg>
+		</button>
+        <button class="btn" onClick="filterSelection('mageFilter')">
+			<svg class="icon-mage" id="iconButton"></svg>
+		</button>
+		<button class="btn" onClick="filterSelection('warriorFilter')">
+			<svg class="icon-warrior" id="iconButton"></svg>
+		</button>
+		</div>
+		<div>
+		<span class="filterText">Basic Attack:</span>
+		<button class="btn" onClick="filterSelection('meleeFilter')">
+			<svg class="icon-melee" id="iconButton"></svg>
+		</button>
+		<button class="btn" onClick="filterSelection('rangedFilter')">
+			<svg class="icon-ranged" id="iconButton"></svg>
+		</button>
+		</div>
+		<div>
+		<span class="filterText">Type:</span>
+        <button class="btn" onClick="filterSelection('physicalFilter')">
+            <svg class="icon-physical" id="iconButton"></svg>
+		</button>
+		<button class="btn" onClick="filterSelection('magicalFilter')">
+            <svg class="icon-magical" id="iconButton"></svg>
+        </button>
+		</div>
+		<div>
+        <span class="filterText">Pantheon:</span>
+		<button class="btn" onClick="filterSelection('arthurianFilter')">
+            <svg class="icon-arthurian" id="iconButton"></svg>
+        </button>
+		<button class="btn" onClick="filterSelection('babylonianFilter')">
+            <svg class="icon-babylonian" id="iconButton"></svg>
+        </button>
+		<button class="btn" onClick="filterSelection('celticFilter')">
+            <svg class="icon-celtic" id="iconButton"></svg>
+        </button>
+		<button class="btn" onClick="filterSelection('chineseFilter')">
+            <svg class="icon-chinese" id="iconButton"></svg>
+        </button>
+		<button class="btn" onClick="filterSelection('egyptianFilter')">
+            <svg class="icon-egyptian" id="iconButton"></svg>
+        </button>
+		<button class="btn" onClick="filterSelection('great-old-onesFilter')">
+            <svg class="icon-great-old-ones" id="iconButton"></svg>
+        </button>
+		<button class="btn" onClick="filterSelection('greekFilter')">
+            <svg class="icon-greek" id="iconButton"></svg>
+        </button>
+		<button class="btn" onClick="filterSelection('hinduFilter')">
+            <svg class="icon-hindu" id="iconButton"></svg>
+        </button>
+		<button class="btn" onClick="filterSelection('japaneseFilter')">
+            <svg class="icon-japanese" id="iconButton"></svg>
+        </button>
+		<button class="btn" onClick="filterSelection('mayaFilter')">
+            <svg class="icon-maya" id="iconButton"></svg>
+        </button>
+		<button class="btn" onClick="filterSelection('norseFilter')">
+            <svg class="icon-norse" id="iconButton"></svg>
+        </button>
+		<button class="btn" onClick="filterSelection('polynesianFilter')">
+            <svg class="icon-polynesian" id="iconButton"></svg>
+        </button>
+		<button class="btn" onClick="filterSelection('romanFilter')">
+            <svg class="icon-roman" id="iconButton"></svg>
+        </button>
+		<button class="btn" onClick="filterSelection('slavicFilter')">
+            <svg class="icon-slavic" id="iconButton"></svg>
+        </button>
+		<button class="btn" onClick="filterSelection('voodooFilter')">
+            <svg class="icon-voodoo" id="iconButton"></svg>
+        </button>
+		<button class="btn" onClick="filterSelection('yorubaFilter')">
+            <svg class="icon-yoruba" id="iconButton"></svg>
+        </button>
+		</div>
+		<div>
+		<span class="filterText">Reset:</span>
+		<button class="btn" id="allGods" onClick="filterSelection('all')">
+			<svg class="icon-reset" id="iconButton"></svg>
+		</button>
+		</div>
+	</div>
+
 	<!-- each god to have a modal that opens with their information ( not a new page! )-->
 
 	<div class="support-grid"></div>
-	<div class="band-god">
-		<div class="warrior god-class">
+	<div class="band-god" id="god-list">
+		<div class="god-class warriorFilter greekFilter meleeFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/achilles.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Achilles</h1>
 					<span>Hero of the Trojan War</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-warrior c">
-						<rect>
-							<title>Warrior</title>
-						</rect>
-					</svg>
-					<svg class="icon-greek c">
-						<rect>
-							<title>Greek</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon warrior greek melee physical"></div>
 			</div>
 		</div>
-		<div class="mage god-class">
+		<div class="god-class mageFilter hinduFilter rangedFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/agni.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Agni</h1>
 					<span>God of Fire</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-mage c">
-						<rect>
-							<title>Mage</title>
-						</rect>
-					</svg>
-					<svg class="icon-hindu c">
-						<rect>
-							<title>Hindu</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon mage hindu ranged magical"></div>
 			</div>
 		</div>
-		<div class="hunter god-class">
+		<div class="god-class hunterFilter mayaFilter rangedFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/ah-muzen-cab.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Ah Muzen Cab</h1>
 					<span>God of Bees</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-hunter c">
-						<rect>
-							<title>Hunter</title>
-						</rect>
-					</svg>
-					<svg class="icon-maya c">
-						<rect>
-							<title>Maya</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon hunter maya ranged physical"></div>
 			</div>
 		</div>
-		<div class="mage god-class">
+		<div class="god-class mageFilter mayaFilter rangedFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/ah-puch.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Ah Puch</h1>
 					<span>Horrific God of Decay</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-mage c">
-						<rect>
-							<title>Mage</title>
-						</rect>
-					</svg>
-					<svg class="icon-maya c">
-						<rect>
-							<title>Maya</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon mage maya ranged physical"></div>
 			</div>
 		</div>
-		<div class="warrior god-class">
+		<div class="god-class warriorFilter japaneseFilter meleeFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/amaterasu.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Amaterasu</h1>
 					<span>The Shining Light</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-warrior c">
-						<rect>
-							<title>Warrior</title>
-						</rect>
-					</svg>
-					<svg class="icon-japanese c">
-						<rect>
-							<title>Japanese</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon warrior japanese melee physical"></div>
 			</div>
 		</div>
-		<div class="hunter god-class">
+		<div class="god-class hunterFilter egyptianFilter rangedFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/anhur.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Anhur</h1>
 					<span>Slayer of Enemies</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-hunter c">
-						<rect>
-							<title>Hunter</title>
-						</rect>
-					</svg>
-					<svg class="icon-egyptian c">
-						<rect>
-							<title>Egyptian</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon hunter egyptian ranged physical"></div>
 			</div>
 		</div>
-		<div class="mage god-class">
+		<div class="god-class mageFilter egyptianFilter rangedFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/anubis.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Anubis</h1>
 					<span>God of the Dead</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-mage c">
-						<rect>
-							<title>Mage</title>
-						</rect>
-					</svg>
-					<svg class="icon-egyptian c">
-						<rect>
-							<title>Egyptian</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon mage egyptian ranged magical"></div>
 			</div>
 		</div>
-		<div class="mage god-class">
+		<div class="god-class mageFilter chineseFilter meleeFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/ao-kuang.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Ao Kuang</h1>
 					<span>Dragon King of the Eastern Seas</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-mage c">
-						<rect>
-							<title>Mage</title>
-						</rect>
-					</svg>
-					<svg class="icon-chinese c">
-						<rect>
-							<title>Chinese</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon mage chinese melee magical"></div>
 			</div>
 		</div>
-		<div class="mage god-class">
+		<div class="god-class mageFilter greekFilter rangedFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/aphrodite.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Aphrodite</h1>
 					<span>Goddess of Beauty</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-mage c">
-						<rect>
-							<title>Mage</title>
-						</rect>
-					</svg>
-					<svg class="icon-greek c">
-						<rect>
-							<title>Greek</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon mage greek ranged magical"></div>
 			</div>
 		</div>
-		<div class="hunter god-class">
+		<div class="god-class hunterFilter greekFilter rangedFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/apollo.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Apollo</h1>
 					<span>God of Music</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-hunter c">
-						<rect>
-							<title>Hunter</title>
-						</rect>
-					</svg>
-					<svg class="icon-greek c">
-						<rect>
-							<title>Greek</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon hunter greek ranged physical"></div>
 			</div>
 		</div>
-		<div class="assassin god-class">
+		<div class="god-class assassinFilter greekFilter meleeFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/arachne.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Arachne</h1>
 					<span>The Weaver</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-assassin c">
-						<rect>
-							<title>Assassin</title>
-						</rect>
-					</svg>
-					<svg class="icon-greek c">
-						<rect>
-							<title>Greek</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon assassin greek melee physical"></div>
 			</div>
 		</div>
-		<div class="guardian god-class">
+		<div class="god-class guardianFilter greekFilter meleeFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/ares.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Ares</h1>
 					<span>God of War</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-guardian c">
-						<rect>
-							<title>Guardian</title>
-						</rect>
-					</svg>
-					<svg class="icon-greek c">
-						<rect>
-							<title>Greek</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon guardian greek melee magical"></div>
 			</div>
 		</div>
-		<div class="hunter god-class">
+		<div class="god-class hunterFilter greekFilter rangedFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/artemis.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Artemis</h1>
 					<span>Goddess of the Hunt</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-hunter c">
-						<rect>
-							<title>Hunter</title>
-						</rect>
-					</svg>
-					<svg class="icon-greek c">
-						<rect>
-							<title>Greek</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon hunter greek ranged physical"></div>
 			</div>
 		</div>
-		<div class="guardian god-class">
+		<div class="god-class guardianFilter celticFilter meleeFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/artio.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Artio</h1>
 					<span>The Bear Goddess</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-guardian c">
-						<rect>
-							<title>Guardian</title>
-						</rect>
-					</svg>
-					<svg class="icon-celtic c">
-						<rect>
-							<title>Celtic</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon guardian celtic melee magical"></div>
 			</div>
 		</div>
-		<div class="guardian god-class">
+		<div class="god-class guardianFilter greekFilter meleeFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/athena.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Athena</h1>
 					<span>Goddess of Wisdom</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-guardian c">
-						<rect>
-							<title>Guardian</title>
-						</rect>
-					</svg>
-					<svg class="icon-greek c">
-						<rect>
-							<title>Greek</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon guardian greek melee magical"></div>
 			</div>
 		</div>
-		<div class="guardian god-class">
+		<div class="god-class guardianFilter greekFilter meleeFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/atlas.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Atlas</h1>
 					<span>Titan of the Cosmos</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-guardian c">
-						<rect>
-							<title>Guardian</title>
-						</rect>
-					</svg>
-					<svg class="icon-greek c">
-						<rect>
-							<title>Greek</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon guardian greek melee magical"></div>
 			</div>
 		</div>
-		<div class="assassin god-class">
+		<div class="god-class assassinFilter mayaFilter meleeFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/awilix.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Awilix</h1>
 					<span>Goddess of the Moon</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-assassin c">
-						<rect>
-							<title>Assassin</title>
-						</rect>
-					</svg>
-					<svg class="icon-maya c">
-						<rect>
-							<title>Maya</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon assassin maya melee physical"></div>
 			</div>
 		</div>
-		<div class="mage god-class">
+		<div class="god-class mageFilter slavicFilter rangedFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/baba-yaga.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Baba Yaga</h1>
 					<span>With of the Woods</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-mage c">
-						<rect>
-							<title>Mage</title>
-						</rect>
-					</svg>
-					<svg class="icon-slavic c">
-						<rect>
-							<title>Slavic</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon mage slavic ranged magical"></div>
 			</div>
 		</div>
-		<div class="guardian god-class">
+		<div class="god-class guardianFilter romanFilter meleeFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/bacchus.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Bacchus</h1>
 					<span>God of Wine</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-guardian c">
-						<rect>
-							<title>Guardian</title>
-						</rect>
-					</svg>
-					<svg class="icon-roman c">
-						<rect>
-							<title>Roman</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon guardian roman melee magical"></div>
 			</div>
 		</div>
-		<div class="assassin god-class">
+		<div class="god-class assassinFilter hinduFilter meleeFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/bakasura.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Bakasura</h1>
 					<span>The Great Devourer</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-assassin c">
-						<rect>
-							<title>Assassin</title>
-						</rect>
-					</svg>
-					<svg class="icon-hindu c">
-						<rect>
-							<title>Hindu</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon assassin hindu melee physical"></div>
 			</div>
 		</div>
-		<div class="mage god-class">
+		<div class="god-class mageFilter voodooFilter rangedFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/baron-samedi.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Baron Samedi</h1>
 					<span>God of Life and Death</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-mage c">
-						<rect>
-							<title>Mage</title>
-						</rect>
-					</svg>
-					<svg class="icon-voodoo c">
-						<rect>
-							<title>Voodoo</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon mage voodoo ranged magical"></div>
 			</div>
 		</div>
-		<div class="assassin god-class">
+		<div class="god-class assassinFilter egyptianFilter meleeFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/bastet.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Bastet</h1>
 					<span>Goddess of Cats</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-assassin c">
-						<rect>
-							<title>Assassin</title>
-						</rect>
-					</svg>
-					<svg class="icon-egyptian c">
-						<rect>
-							<title>Egyptian</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon assassin egyptian melee physical"></div>
 			</div>
 		</div>
-		<div class="warrior god-class">
+		<div class="god-class warriorFilter romanFilter meleeFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/bellona.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Bellona</h1>
 					<span>Goddess of War</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-warrior c">
-						<rect>
-							<title>Warrior</title>
-						</rect>
-					</svg>
-					<svg class="icon-roman c">
-						<rect>
-							<title>Roman</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon warrior roman melee physical"></div>
 			</div>
 		</div>
-		<div class="guardian god-class">
+		<div class="god-class guardianFilter mayaFilter meleeFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/cabrakan.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Cabrakan</h1>
 					<span>Destroyer of Mountains</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-guardian c">
-						<rect>
-							<title>Guardian</title>
-						</rect>
-					</svg>
-					<svg class="icon-maya c">
-						<rect>
-							<title>Maya</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon guardian maya melee magical"></div>
 			</div>
 		</div>
-		<div class="assassin god-class">
+		<div class="god-class assassinFilter mayaFilter meleeFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/camazotz.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Camazotz</h1>
 					<span>Deadly God of Bats</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-assassin c">
-						<rect>
-							<title>Assassin</title>
-						</rect>
-					</svg>
-					<svg class="icon-maya c">
-						<rect>
-							<title>Maya</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon assassin maya melee physical"></div>
 			</div>
 		</div>
-		<div class="guardian god-class">
+		<div class="god-class guardianFilter greekFilter meleeFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/cerberus.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Cerberus</h1>
 					<span>Warden of the Underwold</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-guardian c">
-						<rect>
-							<title>Guardian</title>
-						</rect>
-					</svg>
-					<svg class="icon-greek c">
-						<rect>
-							<title>Greek</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon guardian greek melee magical"></div>
 			</div>
 		</div>
-		<div class="hunter god-class">
+		<div class="god-class hunterFilter celticFilter rangedFilter physicaFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/cernunnos.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Cernunnos</h1>
 					<span>The Horned God</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-hunter c">
-						<rect>
-							<title>Hunter</title>
-						</rect>
-					</svg>
-					<svg class="icon-celtic c">
-						<rect>
-							<title>Celtic</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon hunter celtic ranged physical"></div>
 			</div>
 		</div>
-		<div class="warrior god-class">
+		<div class="god-class warriorFilter mayaFilter meleeFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/chaac.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Chaac</h1>
 					<span>God of Rain</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-warrior c">
-						<rect>
-							<title>Warrior</title>
-						</rect>
-					</svg>
-					<svg class="icon-maya c">
-						<rect>
-							<title>Maya</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon warrior maya melee physical"></div>
 			</div>
 		</div>
-		<div class="mage god-class">
+		<div class="god-class mageFilter chineseFilter rangedFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/change.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Chang'e</h1>
 					<span>Faerie of the Moon</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-mage c">
-						<rect>
-							<title>Mage</title>
-						</rect>
-					</svg>
-					<svg class="icon-chinese c">
-						<rect>
-							<title>Chinese</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon mage chinese ranged magical"></div>
 			</div>
 		</div>
-		<div class="hunter god-class">
+		<div class="god-class hunterFilter greekFilter rangedFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/charybdis.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Charybdis</h1>
 					<span>The Ceaseless Whirlpool</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-hunter c">
-						<rect>
-							<title>Hunter</title>
-						</rect>
-					</svg>
-					<svg class="icon-greek c">
-						<rect>
-							<title>Greek</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon hunter greek ranged physical"></div>
 			</div>
 		</div>
-		<div class="hunter god-class">
+		<div class="god-class hunterFilter slavicFilter rangedFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/chernobog.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Chernobog</h1>
 					<span>Lord of Darkness</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-hunter c">
-						<rect>
-							<title>Hunter</title>
-						</rect>
-					</svg>
-					<svg class="icon-slavic c">
-						<rect>
-							<title>Slavic</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon hunter slavic ranged physical"></div>
 			</div>
 		</div>
-		<div class="hunter god-class">
+		<div class="god-class hunterFilter greekFilter rangedFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/chiron.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Chiron</h1>
 					<span>The Great Teacher</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-hunter c">
-						<rect>
-							<title>Hunter</title>
-						</rect>
-					</svg>
-					<svg class="icon-greek c">
-						<rect>
-							<title>Greek</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon hunter greek ranged physical"></div>
 			</div>
 		</div>
-		<div class="mage god-class">
+		<div class="god-class mageFilter greekFilter rangedFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/chronos.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Chronos</h1>
 					<span>Keeper of Time</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-mage c">
-						<rect>
-							<title>Mage</title>
-						</rect>
-					</svg>
-					<svg class="icon-greek c">
-						<rect>
-							<title>Greek</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon mage greek ranged magical"></div>
 			</div>
 		</div>
-		<div class="assassin god-class">
+		<div class="god-class assassinFilter celticFilter meleeFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/cliodhna.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Cliodhna</h1>
 					<span>Queen of the Banshees</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-assassin c">
-						<rect>
-							<title>Assassin</title>
-						</rect>
-					</svg>
-					<svg class="icon-celtic c">
-						<rect>
-							<title>Celtic</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon assassin celtic melee physical"></div>
 			</div>
 		</div>
-		<div class="guardian god-class">
+		<div class="god-class guardianFilter great-old-onesFilter meleeFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/cthulhu.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Cthulhu</h1>
 					<span>The Great Dreamer</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-guardian c">
-						<rect>
-							<title>Guardian</title>
-						</rect>
-					</svg>
-					<svg class="icon-great-old-ones">
-						<rect>
-							<title>Great Old Ones</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon guardian great-old-ones melee magical"></div>
 			</div>
 		</div>
-		<div class="warrior god-class">
+		<div class="god-class warriorFilter celticFilter meleeFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/cu-chulainn.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Cu Chulainn</h1>
 					<span>Hound of Ulster</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-warrior c">
-						<rect>
-							<title>Warrior</title>
-						</rect>
-					</svg>
-					<svg class="icon-celtic c">
-						<rect>
-							<title>Celtic</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon warrior celtic melee physical"></div>
 			</div>
 		</div>
-		<div class="hunter god-class">
+		<div class="god-class hunterFilter romanFilter rangedFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/cupid.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Cupid</h1>
 					<span>God of Love</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-hunter c">
-						<rect>
-							<title>Hunter</title>
-						</rect>
-					</svg>
-					<svg class="icon-roman c">
-						<rect>
-							<title>Roman</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon hunter roman ranged physical"></div>
 			</div>
 		</div>
-		<div class="assassin god-class">
+		<div class="god-class assassinFilter chineseFilter meleeFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/da-ji.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Da Ji</h1>
 					<span>The Nine-Tailed Fox</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-assassin c">
-						<rect>
-							<title>Assassin</title>
-						</rect>
-					</svg>
-					<svg class="icon-chinese c">
-						<rect>
-							<title>Chinese</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon assassin chinese melee physical"></div>
 			</div>
 		</div>
-		<div class="hunter god-class">
+		<div class="god-class hunterFilter japaneseFilter rangedFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/danzaburou.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Danzaburou</h1>
 					<span>The Legendary Tanuki</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-hunter c">
-						<rect>
-							<title>Hunter</title>
-						</rect>
-					</svg>
-					<svg class="icon-japanese c">
-						<rect>
-							<title>Japanese</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon hunter japanese ranged physical"></div>
 			</div>
 		</div>
-		<div class="mage god-class">
+		<div class="god-class mageFilter romanFilter rangedFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/discordia.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Discordia</h1>
 					<span>Goddess of Strife</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-mage c">
-						<rect>
-							<title>Mage</title>
-						</rect>
-					</svg>
-					<svg class="icon-roman c">
-						<rect>
-							<title>Roman</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon mage roman ranged magical"></div>
 			</div>
 		</div>
-		<div class="warrior god-class">
+		<div class="god-class warriorFilter chineseFilter meleeFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/erlang-shen.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Erlang Shen</h1>
 					<span>The Illustrious Sage</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-warrior c">
-						<rect>
-							<title>Warrior</title>
-						</rect>
-					</svg>
-					<svg class="icon-chinese c">
-						<rect>
-							<title>Chinese</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon warrior chinese melee physical"></div>
 			</div>
 		</div>
-		<div class="mage god-class">
+		<div class="god-class mageFilter eqgyptianFilter rangedFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/eset.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Eset</h1>
 					<span>Goddess of Magic</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-mage c">
-						<rect>
-							<title>Mage</title>
-						</rect>
-					</svg>
-					<svg class="icon-egyptian c">
-						<rect>
-							<title>Egyptian</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon mage egyptian ranged magical"></div>
 			</div>
 		</div>
-		<div class="guardian god-class">
+		<div class="god-class guardianFilter norseFilter meleeFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/fafnir.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Fafnir</h1>
 					<span>The Lord of Glittering Gold</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-guardian c">
-						<rect>
-							<title>Guardian</title>
-						</rect>
-					</svg>
-					<svg class="icon-norse c">
-						<rect>
-							<title>Norse</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon guardian norse melee magical"></div>
 			</div>
 		</div>
-		<div class="assassin god-class">
+		<div class="god-class assassinFilter norseFilter meleeFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/fenrir.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Fenrir</h1>
 					<span>The Unbound</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-assassin c">
-						<rect>
-							<title>Assassin</title>
-						</rect>
-					</svg>
-					<svg class="icon-norse c">
-						<rect>
-							<title>Norse</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon assassin norse melee physical"></div>
 			</div>
 		</div>
-		<div class="mage god-class">
+		<div class="god-class mageFilter norseFilter meleeFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/freya.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Freya</h1>
 					<span>Queen of the Valkyries</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-mage c">
-						<rect>
-							<title>Mage</title>
-						</rect>
-					</svg>
-					<svg class="icon-norse c">
-						<rect>
-							<title>Norse</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon mage norse melee magical"></div>
 			</div>
 		</div>
-		<div class="guardian god-class">
+		<div class="god-class guardianFilter hinduFilter meleeFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/ganesha.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Ganesha</h1>
 					<span>God of Success</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-guardian c">
-						<rect>
-							<title>Guardian</title>
-						</rect>
-					</svg>
-					<svg class="icon-hindu c">
-						<rect>
-							<title>Hindu</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon guardian hindu melee magical"></div>
 			</div>
 		</div>
-		<div class="guardian god-class">
+		<div class="god-class guardianFilter eqgyptianFilter meleeFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/geb.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Geb</h1>
 					<span>God of Earth</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-guardian c">
-						<rect>
-							<title>Guardian</title>
-						</rect>
-					</svg>
-					<svg class="icon-egyptian c">
-						<rect>
-							<title>Egyptian</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon guardian egyptian melee magical"></div>
 			</div>
 		</div>
-		<div class="warrior god-class">
+		<div class="god-class warriorFilter babylonianFilter meleeFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/gilgamesh.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Gilgamesh</h1>
 					<span>King of Uruk</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-warrior c">
-						<rect>
-							<title>Warrior</title>
-						</rect>
-					</svg>
-					<svg class="icon-babylonian">
-						<rect>
-							<title>Babylonian</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon warrior babylonian melee physical"></div>
 			</div>
 		</div>
-		<div class="warrior god-class">
+		<div class="god-class warriorFilter chineseFilter meleeFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/guan-yu.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Guan Yu</h1>
 					<span>Saint of War</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-warrior c">
-						<rect>
-							<title>Warrior</title>
-						</rect>
-					</svg>
-					<svg class="icon-chinese c">
-						<rect>
-							<title>Chinese</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon warrior chinese melee physical"></div>
 			</div>
 		</div>
-		<div class="hunter god-class">
+		<div class="god-class hunterFilter japaneseFilter rangedFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/hachiman.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Hachiman</h1>
 					<span>Lord of the Eight Banners</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-hunter c">
-						<rect>
-							<title>Hunter</title>
-						</rect>
-					</svg>
-					<svg class="icon-japanese c">
-						<rect>
-							<title>Japanese</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon hunter japanese ranged physical"></div>
 			</div>
 		</div>
-		<div class="mage god-class">
+		<div class="god-class mageFilter greekFilter rangedFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/hades.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Hades</h1>
 					<span>King of the Underworld</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-mage c">
-						<rect>
-							<title>Mage</title>
-						</rect>
-					</svg>
-					<svg class="icon-greek c">
-						<rect>
-							<title>Greek</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon mage greek ranged magical"></div>
 			</div>
 		</div>
-		<div class="mage god-class">
+		<div class="god-class mageFilter chineseFilter rangedFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/he-bo.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>He Bo</h1>
 					<span>God of the Yellow River</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-mage c">
-						<rect>
-							<title>Mage</title>
-						</rect>
-					</svg>
-					<svg class="icon-chinese c">
-						<rect>
-							<title>Chinese</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon mage chinese ranged magical"></div>
 			</div>
 		</div>
-		<div class="hunter god-class">
+		<div class="god-class hunterFilter norseFilter rangedFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/heimdallr.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Heimdallr</h1>
 					<span>The Vigilant</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-hunter c">
-						<rect>
-							<title>Hunter</title>
-						</rect>
-					</svg>
-					<svg class="icon-norse c">
-						<rect>
-							<title>Norse</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon hunter norse ranged physical"></div>
 			</div>
 		</div>
-		<div class="mage god-class">
+		<div class="god-class mageFilter norseFilter rangedFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/hel.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Hel</h1>
 					<span>Goddess of the Underwold</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-mage c">
-						<rect>
-							<title>Mage</title>
-						</rect>
-					</svg>
-					<svg class="icon-norse c">
-						<rect>
-							<title>Norse</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon mage norse ranged magical"></div>
 			</div>
 		</div>
-		<div class="mage god-class">
+		<div class="god-class mageFilter greekFilter rangedFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/hera.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Hera</h1>
 					<span>Queen of the Gods</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-mage c">
-						<rect>
-							<title>Mage</title>
-						</rect>
-					</svg>
-					<svg class="icon-greek c">
-						<rect>
-							<title>Greek</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon mage greek ranged magical"></div>
 			</div>
 		</div>
-		<div class="warrior god-class">
+		<div class="god-class warriorFilter romanFilter meleeFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/hercules.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Hercules</h1>
 					<span>Champion of Rome</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-warrior c">
-						<rect>
-							<title>Warrior</title>
-						</rect>
-					</svg>
-					<svg class="icon-roman c">
-						<rect>
-							<title>Roman</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon warrior roman melee physical"></div>
 			</div>
 		</div>
-		<div class="warrior god-class">
+		<div class="god-class warriorFilter egyptianFilter meleeFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/horus.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Horus</h1>
 					<span>The Rightful Heir</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-warrior c">
-						<rect>
-							<title>Warrior</title>
-						</rect>
-					</svg>
-					<svg class="icon-egyptian c">
-						<rect>
-							<title>Egyptian</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon warrior egyptian melee physical"></div>
 			</div>
 		</div>
-		<div class="hunter god-class">
+		<div class="god-class hunterFilter chineseFilter rangedFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/hou-yi.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Hou Yi</h1>
 					<span>Defender of the Earth</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-hunter c">
-						<rect>
-							<title>Hunter</title>
-						</rect>
-					</svg>
-					<svg class="icon-chinese c">
-						<rect>
-							<title>Chinese</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon hunter chinese ranged physical"></div>
 			</div>
 		</div>
-		<div class="assassin god-class">
+		<div class="god-class assassinFilter mayaFilter meleeFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/hun-batz.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Hun Batz</h1>
 					<span>The Howler Monkey God</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-assassin c">
-						<rect>
-							<title>Assassin</title>
-						</rect>
-					</svg>
-					<svg class="icon-maya c">
-						<rect>
-							<title>Maya</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon assassin maya melee physical"></div>
 			</div>
 		</div>
-		<div class="hunter god-class new">
+		<div class="new god-class hunterFilter babylonianFilter rangedFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/ishtar.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Ishtar</h1>
 					<span>Goddess of Love and War</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-hunter c">
-						<rect>
-							<title>Hunter</title>
-						</rect>
-					</svg>
-					<svg class="icon-babylonian c">
-						<rect>
-							<title>Babylonian</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon hunter babylonian ranged physical"></div>
 			</div>
 		</div>
-		<div class="hunter god-class">
+		<div class="god-class hunterFilter japaneseFilter rangedFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/izanami.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Izanami</h1>
 					<span>Matron of the Dead</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-hunter c">
-						<rect>
-							<title>Hunter</title>
-						</rect>
-					</svg>
-					<svg class="icon-japanese c">
-						<rect>
-							<title>Japanese</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon hunter japanese ranged physical"></div>
 			</div>
 		</div>
-		<div class="mage god-class">
+		<div class="god-class mageFilter romanFilter rangedFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/janus.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Janus</h1>
 					<span>God of Portals and Transitions</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-mage c">
-						<rect>
-							<title>Mage</title>
-						</rect>
-					</svg>
-					<svg class="icon-roman c">
-						<rect>
-							<title>Roman</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon mage roman ranged magical"></div>
 			</div>
 		</div>
-		<div class="hunter god-class">
+		<div class="god-class hunterFilter chineseFilter rangedFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/jing-wei.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Jing Wei</h1>
 					<span>The Gatekeeper</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-hunter c">
-						<rect>
-							<title>Hunter</title>
-						</rect>
-					</svg>
-					<svg class="icon-chinese c">
-						<rect>
-							<title>Chinese</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon hunter chinese ranged physical"></div>
 			</div>
 		</div>
-		<div class="guardian god-class">
+		<div class="god-class guardianFilter norseFilter rangedFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/jormungandr.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Jormungandr</h1>
 					<span>The World Serpent</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-guardian c">
-						<rect>
-							<title>Guardian</title>
-						</rect>
-					</svg>
-					<svg class="icon-norse c">
-						<rect>
-							<title>Norse</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon guardian norse ranged magical"></div>
 			</div>
 		</div>
-		<div class="assassin god-class">
+		<div class="god-class assassinFilter hinduFilter meleeFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/kali.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Kali</h1>
 					<span>Goddess of Destruction</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-assassin c">
-						<rect>
-							<title>Assassin</title>
-						</rect>
-					</svg>
-					<svg class="icon-hindu c">
-						<rect>
-							<title>Hindu</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon assassin hindu melee physical"></div>
 			</div>
 		</div>
-		<div class="guardian god-class">
+		<div class="god-class guardianFilter egyptianFilter meleeFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/khepri.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Khepri</h1>
 					<span>The Dawn Bringer</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-guardian c">
-						<rect>
-							<title>Guardian</title>
-						</rect>
-					</svg>
-					<svg class="icon-egyptian c">
-						<rect>
-							<title>Egyptian</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon guardian egyptian melee magical"></div>
 			</div>
 		</div>
-		<div class="warrior god-class">
+		<div class="god-class warriorFilter arthurianFilter meleeFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/king-arthur.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>King Arthur</h1>
 					<span>Weilder of Excalibur</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-warrior c">
-						<rect>
-							<title>Warrior</title>
-						</rect>
-					</svg>
-					<svg class="icon-arthurian">
-						<rect>
-							<title>Arthurian</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon warrior arthurian melee physical"></div>
 			</div>
 		</div>
-		<div class="mage god-class">
+		<div class="god-class mageFilter mayaFilter rangedFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/kukulkan.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Kukulkan</h1>
 					<span>Serpent of the Nine Winds</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-mage c">
-						<rect>
-							<title>Mage</title>
-						</rect>
-					</svg>
-					<svg class="icon-maya c">
-						<rect>
-							<title>Maya</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon mage maya ranged magical"></div>
 			</div>
 		</div>
-		<div class="guardian god-class">
+		<div class="god-class guardianFilter hinduFilter meleeFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/kumbhakarna.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Kumbhakarna</h1>
 					<span>The Sleeping Giant</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-guardian c">
-						<rect>
-							<title>Guardian</title>
-						</rect>
-					</svg>
-					<svg class="icon-hindu c">
-						<rect>
-							<title>Hindu</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon guardian hindu melee physical"></div>
 			</div>
 		</div>
-		<div class="guardian god-class">
+		<div class="god-class guardianFilter japaneseFilter meleeFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/kuzenbo.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Kuzenbo</h1>
 					<span>King Kappa</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-guardian c">
-						<rect>
-							<title>Guardian</title>
-						</rect>
-					</svg>
-					<svg class="icon-japanese c">
-						<rect>
-							<title>Japanese</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon guardian japanese melee magical"></div>
 			</div>
 		</div>
-		<div class="assassin god-class">
+		<div class="god-class assassinFilter norseFilter meleeFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/loki.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Loki</h1>
 					<span>The Trickster God</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-assassin c">
-						<rect>
-							<title>Assassin</title>
-						</rect>
-					</svg>
-					<svg class="icon-norse c">
-						<rect>
-							<title>Norse</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon assassin norse melee physical"></div>
 			</div>
 		</div>
-		<div class="hunter god-class">
+		<div class="god-class hunterFilter greekFilter rangedFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/medusa.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Medusa</h1>
 					<span>The Gorgon</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-hunter c">
-						<rect>
-							<title>Hunter</title>
-						</rect>
-					</svg>
-					<svg class="icon-greek c">
-						<rect>
-							<title>Greek</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon hunter greek ranged physical"></div>
 			</div>
 		</div>
-		<div class="assassin god-class">
+		<div class="god-class assassinFilter romanFilter meleeFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/mercury.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Mercury</h1>
 					<span>Messenger of the Gods</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-assassin c">
-						<rect>
-							<title>Assassin</title>
-						</rect>
-					</svg>
-					<svg class="icon-roman c">
-						<rect>
-							<title>Roman</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon assassin roman melee physical"></div>
 			</div>
 		</div>
-		<div class="mage god-class">
+		<div class="god-class mageFilter arthurianFilter rangedFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/merlin.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Merlin</h1>
 					<span>The Master Wizard</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-mage c">
-						<rect>
-							<title>Mage</title>
-						</rect>
-					</svg>
-					<svg class="icon-arthurian">
-						<rect>
-							<title>Arthurian</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon mage arthurian ranged magical"></div>
 			</div>
 		</div>
-		<div class="mage god-class">
+		<div class="god-class mageFilter arthurianFilter rangedFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/morgan-le-fay.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Morgan Le Fay</h1>
 					<span>The Dark Enchantress</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-mage c">
-						<rect>
-							<title>Mage</title>
-						</rect>
-					</svg>
-					<svg class="icon-arthurian">
-						<rect>
-							<title>Arthurian</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon mage arthurian ranged magical"></div>
 			</div>
 		</div>
-		<div class="warrior god-class">
+		<div class="god-class warriorFilter chineseFilter meleeFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/mulan.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Mulan</h1>
 					<span>The Ascendant Warrior</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-warrior c">
-						<rect>
-							<title>Warrior</title>
-						</rect>
-					</svg>
-					<svg class="icon-chinese c">
-						<rect>
-							<title>Chinese</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon warrior chinese melee physical"></div>
 			</div>
 		</div>
-		<div class="assassin god-class">
+		<div class="god-class assassinFilter chineseFilter meleeFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/ne-zha.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Ne Zha</h1>
 					<span>The Third Lotus Prince</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-assassin c">
-						<rect>
-							<title>Assassin</title>
-						</rect>
-					</svg>
-					<svg class="icon-chinese c">
-						<rect>
-							<title>Chinese</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon assassin chinese melee physical"></div>
 			</div>
 		</div>
-		<div class="hunter god-class">
+		<div class="god-class hunterFilter egyptianFilter rangedFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/neith.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Neith</h1>
 					<span>Weaver of Fate</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-hunter c">
-						<rect>
-							<title>Hunter</title>
-						</rect>
-					</svg>
-					<svg class="icon-egyptian c">
-						<rect>
-							<title>Egyptian</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon hunter egyptian ranged physical"></div>
 			</div>
 		</div>
-		<div class="assassin god-class">
+		<div class="god-class assassinFilter greekFilter meleeFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/nemesis.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Nemesis</h1>
 					<span>Goddess of Vengeance</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-assassin c">
-						<rect>
-							<title>Assassin</title>
-						</rect>
-					</svg>
-					<svg class="icon-greek c">
-						<rect>
-							<title>Greek</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon assassin greek melee physical"></div>
 			</div>
 		</div>
-		<div class="warrior god-class">
+		<div class="god-class warriorFilter greekFilter meleeFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/nike.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Nike</h1>
 					<span>Goddess of Victory</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-warrior c">
-						<rect>
-							<title>Warrior</title>
-						</rect>
-					</svg>
-					<svg class="icon-greek c">
-						<rect>
-							<title>Greek</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon warrior greek melee physical"></div>
 			</div>
 		</div>
-		<div class="mage god-class">
+		<div class="god-class mageFilter romanFilter rangedFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/nox.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Nox</h1>
 					<span>Goddess of Night</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-mage c">
-						<rect>
-							<title>Mage</title>
-						</rect>
-					</svg>
-					<svg class="icon-roman c">
-						<rect>
-							<title>Roman</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon mage roman ranged magical"></div>
 			</div>
 		</div>
-		<div class="mage god-class">
+		<div class="god-class mageFilter chineseFilter rangedFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/nu-wa.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Nu Wa</h1>
 					<span>Guardian of Heaven</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-mage c">
-						<rect>
-							<title>Mage</title>
-						</rect>
-					</svg>
-					<svg class="icon-chinese c">
-						<rect>
-							<title>Chinese</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon mage chinese ranged magical"></div>
 			</div>
 		</div>
-		<div class="warrior god-class">
+		<div class="god-class warriorFilter norseFilter meleeFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/odin.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Odin</h1>
 					<span>The Allfather</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-warrior c">
-						<rect>
-							<title>Warrior</title>
-						</rect>
-					</svg>
-					<svg class="icon-norse c">
-						<rect>
-							<title>Norse</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon warrior norse melee physical"></div>
 			</div>
 		</div>
-		<div class="mage god-class">
+		<div class="god-class mageFilter yorubaFilter rangedFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/olorun.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Olorun</h1>
 					<span>Ruler of the Heavens</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-mage c">
-						<rect>
-							<title>Mage</title>
-						</rect>
-					</svg>
-					<svg class="icon-yoruba">
-						<rect>
-							<title>Yoruba</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon mage yoruba ranged magical"></div>
 			</div>
 		</div>
-		<div class="warrior god-class">
+		<div class="god-class warriorFilter egyptianFilter meleeFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/osiris.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Osiris</h1>
 					<span>Broken God of the Afterlife</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-warrior c">
-						<rect>
-							<title>Warrior</title>
-						</rect>
-					</svg>
-					<svg class="icon-egyptian c">
-						<rect>
-							<title>Egyptian</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon warrior egyptian melee physical"></div>
 			</div>
 		</div>
-		<div class="assassin god-class">
+		<div class="god-class assassinFilter polynesianFilter meleeFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/pele.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Pele</h1>
 					<span>Goddess of Volcanoes</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-assassin c">
-						<rect>
-							<title>Assassin</title>
-						</rect>
-					</svg>
-					<svg class="icon-polynesian c">
-						<rect>
-							<title>Polynesian</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon assassin polynesian melee physical"></div>
 			</div>
 		</div>
-		<div class="mage god-class">
+		<div class="god-class mageFilter greekFilter rangedFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/persephone.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Persephone</h1>
 					<span>Queen of the Underworld</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-mage c">
-						<rect>
-							<title>Mage</title>
-						</rect>
-					</svg>
-					<svg class="icon-greek c">
-						<rect>
-							<title>Greek</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon mage greek ranged magical"></div>
 			</div>
 		</div>
-		<div class="mage god-class">
+		<div class="god-class mageFilter greekFilter rangedFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/poseidon.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Poseidon</h1>
 					<span>God of the Oceans</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-mage c">
-						<rect>
-							<title>Mage</title>
-						</rect>
-					</svg>
-					<svg class="icon-greek c">
-						<rect>
-							<title>Greek</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon mage greek ranged magical"></div>
 			</div>
 		</div>
-		<div class="mage god-class">
+		<div class="god-class mageFilter egyptianFilter rangedFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/ra.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Ra</h1>
 					<span>Sun God</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-mage c">
-						<rect>
-							<title>Mage</title>
-						</rect>
-					</svg>
-					<svg class="icon-egyptian c">
-						<rect>
-							<title>Egyptian</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon mage egyptian ranged magical"></div>
 			</div>
 		</div>
-		<div class="mage god-class">
+		<div class="god-class mageFilter japaneseFilter rangedFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/raijin.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Raijin</h1>
 					<span>Master of Thunder</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-mage c">
-						<rect>
-							<title>Mage</title>
-						</rect>
-					</svg>
-					<svg class="icon-japanese c">
-						<rect>
-							<title>Japanese</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon mage japanese ranged magical"></div>
 			</div>
 		</div>
-		<div class="hunter god-class">
+		<div class="god-class hunterFilter hinduFilter rangedFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/rama.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Rama</h1>
 					<span>Seventh Avatar of Vishnu</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-hunter c">
-						<rect>
-							<title>Hunter</title>
-						</rect>
-					</svg>
-					<svg class="icon-hindu c">
-						<rect>
-							<title>Hindu</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon hunter hindu ranged physical"></div>
 			</div>
 		</div>
-		<div class="assassin god-class">
+		<div class="god-class assassinFilter norseFilter meleeFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/ratatoskr.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Ratatoskr</h1>
 					<span>The Sly Messenger</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-assassin c">
-						<rect>
-							<title>Assassin</title>
-						</rect>
-					</svg>
-					<svg class="icon-norse c">
-						<rect>
-							<title>Norse</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon assassin norse melee physical"></div>
 			</div>
 		</div>
-		<div class="assassin god-class">
+		<div class="god-class assassinFilter hinduFilter meleeFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/ravana.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Ravana</h1>
 					<span>Demon King of Lanka</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-assassin c">
-						<rect>
-							<title>Assassin</title>
-						</rect>
-					</svg>
-					<svg class="icon-hindu c">
-						<rect>
-							<title>Hindu</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon assassin hindu melee physical"></div>
 			</div>
 		</div>
-		<div class="mage god-class">
+		<div class="god-class mageFilter greekFilter rangedFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/scylla.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Scylla</h1>
 					<span>Horror of the Sea</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-mage c">
-						<rect>
-							<title>Mage</title>
-						</rect>
-					</svg>
-					<svg class="icon-greek c">
-						<rect>
-							<title>Greek</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon mage greek ranged magical"></div>
 			</div>
 		</div>
-		<div class="assassin god-class">
+		<div class="god-class assassinFilter egyptianFilter meleeFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/serqet.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Serqet</h1>
 					<span>Goddess of Venom</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-assassin c">
-						<rect>
-							<title>Assassin</title>
-						</rect>
-					</svg>
-					<svg class="icon-egyptian c">
-						<rect>
-							<title>Egyptian</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon assassin egyptian melee physical"></div>
 			</div>
 		</div>
-		<div class="assassin god-class">
+		<div class="god-class assassinFilter egyptianFilter meleeFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/set.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Set</h1>
 					<span>The Usurper</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-assassin c">
-						<rect>
-							<title>Assassin</title>
-						</rect>
-					</svg>
-					<svg class="icon-egyptian c">
-						<rect>
-							<title>Egyptian</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon assassin egyptian melee physical"></div>
 			</div>
 		</div>
-		<div class="warrior god-class">
+		<div class="god-class warriorFilter hinduFilter meleeFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/shiva.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Shiva</h1>
 					<span>The Destroyer</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-warrior c">
-						<rect>
-							<title>Warrior</title>
-						</rect>
-					</svg>
-					<svg class="icon-hindu c">
-						<rect>
-							<title>Hindu</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon warrior hindu melee physical"></div>
 			</div>
 		</div>
-		<div class="hunter god-class">
+		<div class="god-class hunterFilter norseFilter rangedFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/skadi.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Skadi</h1>
 					<span>Goddess of Winter</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-hunter c">
-						<rect>
-							<title>Hunter</title>
-						</rect>
-					</svg>
-					<svg class="icon-norse c">
-						<rect>
-							<title>Norse</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon hunter norse ranged physical"></div>
 			</div>
 		</div>
-		<div class="guardian god-class">
+		<div class="god-class guardianFilter egyptianFilter meleeFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/sobek.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Sobek</h1>
 					<span>God of the Nile</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-guardian c">
-						<rect>
-							<title>Guardian</title>
-						</rect>
-					</svg>
-					<svg class="icon-egyptian c">
-						<rect>
-							<title>Egyptian</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon guardian egyptian melee magical"></div>
 			</div>
 		</div>
-		<div class="mage god-class">
+		<div class="god-class mageFilter norseFilter rangedFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/sol.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Sol</h1>
 					<span>Goddess of the Sun</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-mage c">
-						<rect>
-							<title>Mage</title>
-						</rect>
-					</svg>
-					<svg class="icon-norse c">
-						<rect>
-							<title>Norse</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon mage norse ranged magical"></div>
 			</div>
 		</div>
-		<div class="warrior god-class">
+		<div class="god-class warriorFilter chineseFilter meleeFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/sun-wukong.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Sun Wukong</h1>
 					<span>The Monkey King</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-warrior c">
-						<rect>
-							<title>Warrior</title>
-						</rect>
-					</svg>
-					<svg class="icon-chinese c">
-						<rect>
-							<title>Chinese</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon warrior chinese melee physical"></div>
 			</div>
 		</div>
-		<div class="assassin god-class">
+		<div class="god-class assassinFilter japaneseFilter meleeFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/susano.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Susano</h1>
 					<span>God of the Summer Storm</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-assassin c">
-						<rect>
-							<title>Assassin</title>
-						</rect>
-					</svg>
-					<svg class="icon-japanese c">
-						<rect>
-							<title>Japanese</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon assassin japanese melee physical"></div>
 			</div>
 		</div>
-		<div class="guardian god-class">
+		<div class="god-class guardianFilter romanFilter rangedFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/sylvanus.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Sylvanus</h1>
 					<span>Keeper of the Wild</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-guardian c">
-						<rect>
-							<title>Guardian</title>
-						</rect>
-					</svg>
-					<svg class="icon-roman c">
-						<rect>
-							<title>Roman</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon guardian roman ranged magical"></div>
 			</div>
 		</div>
-		<div class="guardian god-class">
+		<div class="god-class guardianFilter romanFilter meleeFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/terra.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Terra</h1>
 					<span>The Earth Mother</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-guardian c">
-						<rect>
-							<title>Guardian</title>
-						</rect>
-					</svg>
-					<svg class="icon-roman c">
-						<rect>
-							<title>Roman</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon guardian roman melee magical"></div>
 			</div>
 		</div>
-		<div class="assassin god-class">
+		<div class="god-class assassinFilter greekFilter meleeFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/thanatos.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Thanatos</h1>
 					<span>Hand of Death</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-assassin c">
-						<rect>
-							<title>Assassin</title>
-						</rect>
-					</svg>
-					<svg class="icon-greek c">
-						<rect>
-							<title>Greek</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon assassin greek melee physical"></div>
 			</div>
 		</div>
-		<div class="mage god-class">
+		<div class="god-class mageFilter celticFilter rangedFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/the-morrigan.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>The Morrigan</h1>
 					<span>Phantom Queen</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-mage c">
-						<rect>
-							<title>Mage</title>
-						</rect>
-					</svg>
-					<svg class="icon-celtic c">
-						<rect>
-							<title>Celtic</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon mage celtic ranged magical"></div>
 			</div>
 		</div>
-		<div class="assassin god-class">
+		<div class="god-class assassinFilter norseFilter meleeFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/thor.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Thor</h1>
 					<span>God of Thunder</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-assassin c">
-						<rect>
-							<title>Assassin</title>
-						</rect>
-					</svg>
-					<svg class="icon-norse c">
-						<rect>
-							<title>Norse</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon assassin norse melee physical"></div>
 			</div>
 		</div>
-		<div class="mage god-class">
+		<div class="god-class mageFilter egyptianFilter rangedFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/thoth.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Thoth</h1>
 					<span>Arbiter of the Damned</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-mage c">
-						<rect>
-							<title>Mage</title>
-						</rect>
-					</svg>
-					<svg class="icon-egyptian c">
-						<rect>
-							<title>Egyptian</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon mage egyptian ranged magical"></div>
 			</div>
 		</div>
-		<div class="mage god-class">
+		<div class="god-class mageFilter babylonianFilter rangedFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/tiamat.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Tiamat</h1>
 					<span>Goddess of the Salt Sea</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-mage c">
-						<rect>
-							<title>Mage</title>
-						</rect>
-					</svg>
-					<svg class="icon-babylonian">
-						<rect>
-							<title>Babylonian</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon mage babylonian ranged magical"></div>
 			</div>
 		</div>
-		<div class="assassin god-class">
+		<div class="god-class assassinFilter japaneseFilter meleeFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/tsukuyomi.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Tsukuyomi</h1>
 					<span>God of the Moon</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-assassin c">
-						<rect>
-							<title>Assassin</title>
-						</rect>
-					</svg>
-					<svg class="icon-japanese c">
-						<rect>
-							<title>Japanese</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon assassin japanese melee physical"></div>
 			</div>
 		</div>
-		<div class="warrior god-class">
+		<div class="god-class warriorFilter norseFilter meleeFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/tyr.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Tyr</h1>
 					<span>The Lawgiver</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-warrior c">
-						<rect>
-							<title>Warrior</title>
-						</rect>
-					</svg>
-					<svg class="icon-norse c">
-						<rect>
-							<title>Norse</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon warrior norse melee physical"></div>
 			</div>
 		</div>
-		<div class="hunter god-class">
+		<div class="god-class hunterFilter norseFilter rangedFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/ullr.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Ullr</h1>
 					<span>The Glorious One</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-hunter c">
-						<rect>
-							<title>Hunter</title>
-						</rect>
-					</svg>
-					<svg class="icon-norse c">
-						<rect>
-							<title>Norse</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon hunter norse ranged physical"></div>
 			</div>
 		</div>
-		<div class="warrior god-class">
+		<div class="god-class warriorFilter hinduFilter meleeFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/vamana.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Vamana</h1>
 					<span>Fifth Avatar of Vishnu</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-warrior c">
-						<rect>
-							<title>Warrior</title>
-						</rect>
-					</svg>
-					<svg class="icon-hindu c">
-						<rect>
-							<title>Hindu</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon warrior hindu melee physical"></div>
 			</div>
 		</div>
-		<div class="mage god-class">
+		<div class="god-class mageFilter romanFilter rangedFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/vulcan.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Vulcan</h1>
 					<span>Smith of the Gods</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-mage c">
-						<rect>
-							<title>Mage</title>
-						</rect>
-					</svg>
-					<svg class="icon-roman c">
-						<rect>
-							<title>Roman</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon mage roman ranged magical"></div>
 			</div>
 		</div>
-		<div class="hunter god-class">
+		<div class="god-class hunterFilter mayaFilter rangedFilter physicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/xbalanque.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Xbalanque</h1>
 					<span>Hidden Jaguar Sun</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-hunter c">
-						<rect>
-							<title>Hunter</title>
-						</rect>
-					</svg>
-					<svg class="icon-maya c">
-						<rect>
-							<title>Maya</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-physical">
-						<rect>
-							<title>Physical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon hunter maya ranged physical"></div>
 			</div>
 		</div>
-		<div class="guardian god-class">
+		<div class="god-class guardianFilter chineseFilter meleeFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/xing-tian.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Xing Tian</h1>
 					<span>The Relentless</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-guardian c">
-						<rect>
-							<title>Guardian</title>
-						</rect>
-					</svg>
-					<svg class="icon-chinese c">
-						<rect>
-							<title>Chinese</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon guardian chinese melee magical"></div>
 			</div>
 		</div>
-		<div class="guardian god-class">
+		<div class="god-class guardianFilter yorubaFilter rangedFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/yemoja.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Yemoja</h1>
 					<span>Goddess of Rivers</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-guardian c">
-						<rect>
-							<title>Guardian</title>
-						</rect>
-					</svg>
-					<svg class="icon-yoruba">
-						<rect>
-							<title>Yoruba</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon guardian yoruba ranged magical"></div>
 			</div>
 		</div>
-		<div class="guardian god-class">
+		<div class="god-class guardianFilter norseFilter meleeFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/ymir.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Ymir</h1>
 					<span>Father of the Frost Giants</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-guardian c">
-						<rect>
-							<title>Guardian</title>
-						</rect>
-					</svg>
-					<svg class="icon-norse c">
-						<rect>
-							<title>Norse</title>
-						</rect>
-					</svg>
-					<svg class="icon-melee">
-						<rect>
-							<title>Melee</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon guardian norse melee magical"></div>
 			</div>
 		</div>
-		<div class="mage god-class">
+		<div class="god-class mageFilter chineseFilter rangedFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/yu-huang.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Yu Huang</h1>
 					<span>The Jade Emperor</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-mage c">
-						<rect>
-							<title>Mage</title>
-						</rect>
-					</svg>
-					<svg class="icon-chinese c">
-						<rect>
-							<title>Chinese</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon mage chinese ranged magical"></div>
 			</div>
 		</div>
-		<div class="mage god-class">
+		<div class="god-class mageFilter greekFilter rangedFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/zeus.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Zeus</h1>
 					<span>God of the Sky</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-mage c">
-						<rect>
-							<title>Mage</title>
-						</rect>
-					</svg>
-					<svg class="icon-greek c">
-						<rect>
-							<title>Greek</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon mage greek ranged magical"></div>
 			</div>
 		</div>
-		<div class="mage god-class">
+		<div class="god-class mageFilter chineseFilter rangedFilter magicalFilter">
 			<div class="god-card">
 				<img src="Images/God Cards/zhong-kui.jpg" class="god-thumb">
 				<article class="god-thumb-text">
 					<h1>Zhong Kui</h1>
 					<span>The Demon Queller</span>
 				</article>
-				<div class="god-thumb-icon">
-					<svg class="icon-mage c">
-						<rect>
-							<title>Mage</title>
-						</rect>
-					</svg>
-					<svg class="icon-chinese c">
-						<rect>
-							<title>Chinese</title>
-						</rect>
-					</svg>
-					<svg class="icon-ranged">
-						<rect>
-							<title>Ranged</title>
-						</rect>
-					</svg>
-					<svg class="icon-magical">
-						<rect>
-							<title>Magical</title>
-						</rect>
-					</svg>
-				</div>
+				<div class="god-thumb-icon mage chinese ranged magical"></div>
 			</div>
 		</div>
 	</div>
@@ -3795,8 +1353,96 @@
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.12.0/umd/react-dom.production.min.js'></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/animejs/3.1.0/anime.min.js'></script>
 
-	<!--Custom JS-->
-	<script src="SmiteAPI.js"></script>
+	<!--Insert God Card Icons-->
+	<script>
+	//Insert role specific icons
+	$(".assassin").append("<svg class='icon-assassin c'><rect><title>Assassin</title></rect></svg>");
+	$(".guardian").append("<svg class='icon-guardian c'><rect><title>Guardian</title></rect></svg>");
+	$(".hunter").append("<svg class='icon-hunter c'><rect><title>Hunter</title></rect></svg>");
+	$(".mage").append("<svg class='icon-mage c'><rect><title>Mage</title></rect></svg>");
+	$(".warrior").append("<svg class='icon-warrior c'><rect><title>Warrior</title></rect></svg>");
+
+	//Insert pantheon specific icons
+	$(".arthurian").append("<svg class='icon-arthurian c'><rect><title>Arthurian</title></rect></svg>");
+	$(".babylonian").append("<svg class='icon-babylonian c'><rect><title>Babylonian</title></rect></svg>");
+	$(".celtic").append("<svg class='icon-celtic c'><rect><title></title>Celtic</rect></svg>");
+	$(".chinese").append("<svg class='icon-chinese c'><rect><title>Chinese</title></rect></svg>");
+	$(".egyptian").append("<svg class='icon-egyptian c'><rect><title>Egyptian</title></rect></svg>");
+	$(".great-old-ones").append("<svg class='icon-great-old-ones c'><rect><title>Great Old Ones</title></rect></svg>");
+	$(".greek").append("<svg class='icon-greek c'><rect><title></title>Greek</rect></svg>");
+	$(".hindu").append("<svg class='icon-hindu c'><rect><title>Hindu</title></rect></svg>");
+	$(".japanese").append("<svg class='icon-japanese c'><rect><title>Japanese</title></rect></svg>");
+	$(".maya").append("<svg class='icon-maya c'><rect><title>Maya</title></rect></svg>");
+	$(".norse").append("<svg class='icon-norse c'><rect><title>Norse</title></rect></svg>");
+	$(".polynesian").append("<svg class='icon-polynesian c'><rect><title>Polynesian</title></rect></svg>");
+	$(".roman").append("<svg class='icon-roman c'><rect><title></title>Roman</rect></svg>");
+	$(".slavic").append("<svg class='icon-slavic c'><rect><title>Slavic</title></rect></svg>");
+	$(".voodoo").append("<svg class='icon-voodoo c'><rect><title>Voodoo</title></rect></svg>");
+	$(".yoruba").append("<svg class='icon-yoruba c'><rect><title>Yoruba</title></rect></svg>");
+
+	//Insert attack range specific icons
+	$(".melee").append("<svg class='icon-melee c'><rect><title>Melee</title></rect></svg>");
+	$(".ranged").append("<svg class='icon-ranged c'><rect><title>Ranged</title></rect></svg>");
+
+	//Insert attack type specific icons
+	$(".physical").append("<svg class='icon-physical c'><rect><title>Physical</title></rect></svg>");
+	$(".magical").append("<svg class='icon-magical c'><rect><title>Magical</title></rect></svg>");
+
+</script>
+<script>
+// 	window.onload = function assassinFilter(){
+// 	$(".assassin").each(function (index, value) { 
+// 		$(value).parent().parent().addClass("assassinFilter");
+// 	})
+// }
+// window.onload = function guardianFilter(){
+// 	$(".guardian").each(function (index, value) { 
+// 		$(value).parent().parent().addClass("guardianFilter");
+// 	})
+// }
+// window.onload = function hunterFilter(){
+// 	$(".hunter").each(function (index, value) { 
+// 		$(value).parent().parent().addClass("hunterFilter");
+// 	})
+// }
+// window.onload = function mageFilter(){
+// 	$(".mage").each(function (index, value) { 
+// 		$(value).parent().parent().addClass("mageFilter");
+// 	})
+// }
+// window.onload = function warriorFilter(){
+// 	$(".warrior").each(function (index, value) { 
+// 		$(value).parent().parent().addClass("warriorFilter");
+// 	})
+// }
+
+// window.onload = function meleeFilter(){
+// 	$(".melee").each(function (index, value) { 
+// 		$(value).parent().parent().addClass("meleeFilter");
+// 	})
+// }
+// window.onload = function rangedFilter(){
+// 	$(".ranged").each(function (index, value) { 
+// 		$(value).parent().parent().addClass("rangedFilter");
+// 	})
+// }
+
+// window.onload = function physicalFilter(){
+// 	$(".physical").each(function (index, value) { 
+// 		$(value).parent().parent().addClass("physicalFilter");
+// 	})
+// }
+// window.onload = function magicalFilter(){
+// 	$(".magical").each(function (index, value) { 
+// 		$(value).parent().parent().addClass("magicalFilter");
+// 	})
+// }
+</script>
+<!--Custom JS-->
+<script src="SmiteAPI.js"></script>
+<script>//Click to show all gods	
+	type="text/javascript">document.getElementById("allGods").click();
+	</script>
 </body>
 
 </html>

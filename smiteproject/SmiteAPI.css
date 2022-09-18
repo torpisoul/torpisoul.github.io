@@ -18,38 +18,37 @@
   --hunter: #f86530;
   --mage: #8b008f;
   --warrior: #ff2935;
-  --norse: #074b7c;
-  --norse-active: #074b7c;
-  --greek: #652d8f;
-  --greek-active: #652d8f;
-  --maya: #056839;
-  --maya-active: #056839;
-  --chinese: #e52330;
-  --chinese-active: #e52330;
-  --hindu: #d91b5c;
-  --hindu-active: #d91b5c;
-  --egyptian: #603813;
-  --egyptian-active: #603813;
-  --roman: #e0b359;
-  --roman-active: #e0b359;
-  --japanese: #ed1f24;
-  --japanese-active: #ed1f24;
+  --arthurian: green;
+  --babylonian: red;
   --celtic: #10592e;
   --celtic-active: #10592e;
-  --slavic: #efaf1b;
+  --chinese: #e52330;
+  --chinese-active: #e52330;
+  --egyptian: #603813;
+  --egyptian-active: #603813;
   --great-old-ones: blue;
-  --babylonian: red;
-  --arthurian: green;
- /*--slavic-ative: #;
- */
-  --voodoo: #fff;
- /*--voodoo-active: #;
- */
+  --greek: #652d8f;
+  --greek-active: #652d8f;
+  --hindu: #d91b5c;
+  --hindu-active: #d91b5c;
+  --japanese: #ed1f24;
+  --japanese-active: #ed1f24;
+  --maya: #056839;
+  --maya-active: #056839;
+  --norse: #074b7c;
+  --norse-active: #074b7c;
   --polynesian: #29dccd;
- /*--polynesian-active: #;
- */
+ /*--polynesian-active: #;*/
+  --roman: #e0b359;
+  --roman-active: #e0b359;
+  --slavic: #efaf1b;
+ /*--slavic-ative: #;*/
+  --voodoo: #fff;
+ /*--voodoo-active: #;*/
+
  --melee: black;
  --ranged: white;
+ 
  --physical: black;
  --ranged: white;
 
@@ -486,8 +485,39 @@ svg[class^="icon-"] {
 .icon-magical {
   background-image: url(Images/icons/icon-magical.svg);
 }
+.icon-reset {
+  background-image: url(Images/icons/arrow-counterclockwise.svg);
+}
 rect {
   width: 100%;
   height: 100%;
   opacity: 0%;
+}
+/* God Filter */
+.god-class {
+  display: none;
+}
+.show {
+  display: block;
+}
+.btn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.btn.active {
+  background-color: #666;
+  color: white;
+}
+.godFilterButtons {
+  display:inline-block;
+}
+.godSubNav {
+  border: lightslategray solid 1px;
+}
+.filterText {
+  color: white;
+  font-size: 1.5rem;
+  padding-left: 1rem;
+  vertical-align: middle;
 }
