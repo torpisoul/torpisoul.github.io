@@ -37,99 +37,207 @@
 	<!-- TODO -->
 
 	<!--Add search filter (name, title, class, pantheon, attack range, attack type)-->
-	<div id="godFilterButtons" class="navbar">
-		<div>
-		<span class="filterText">Role:</span>
-		<button class="btn" onClick="filterSelection('assassinFilter')">
-			<svg class="icon-assassin" id="iconButton"></svg>
-		</button>
-		<button class="btn" onClick="filterSelection('guardianFilter')">
-			<svg class="icon-guardian" id="iconButton"></svg>
-		</button>
-		<button class="btn" onClick="filterSelection('hunterFilter')">
-			<svg class="icon-hunter" id="iconButton"></svg>
-		</button>
-        <button class="btn" onClick="filterSelection('mageFilter')">
-			<svg class="icon-mage" id="iconButton"></svg>
-		</button>
-		<button class="btn" onClick="filterSelection('warriorFilter')">
-			<svg class="icon-warrior" id="iconButton"></svg>
-		</button>
+	<div id="godFilterButtons" class="btn-toolbar">
+		<div class="input-group">
+			<div class="input-group-text" id="godNameFilter"></div>
+			<input type="text" class="form-control" placeholder="Enter God Name">
 		</div>
-		<div>
-		<span class="filterText">Basic Attack:</span>
-		<button class="btn" onClick="filterSelection('meleeFilter')">
-			<svg class="icon-melee" id="iconButton"></svg>
-		</button>
-		<button class="btn" onClick="filterSelection('rangedFilter')">
-			<svg class="icon-ranged" id="iconButton"></svg>
-		</button>
+		<div class="btn-group">
+			<span class="filterText"></span>
+			<button class="btn" onClick="filterSelection('assassinFilter')">
+				<svg class="icon-assassin" id="iconButton">
+					<rect>
+						<title>Assassin</title>
+					</rect>
+				</svg>
+			</button>
+			<button class="btn" onClick="filterSelection('guardianFilter')">
+				<svg class="icon-guardian" id="iconButton">
+					<rect>
+						<title>Guardian</title>
+					</rect>
+				</svg>
+			</button>
+			<button class="btn" onClick="filterSelection('hunterFilter')">
+				<svg class="icon-hunter" id="iconButton">
+					<rect>
+						<title>Hunter</title>
+					</rect>
+				</svg>
+			</button>
+			<button class="btn" onClick="filterSelection('mageFilter')">
+				<svg class="icon-mage" id="iconButton">
+					<rect>
+						<title>Mage</title>
+					</rect>
+				</svg>
+			</button>
+			<button class="btn" onClick="filterSelection('warriorFilter')">
+				<svg class="icon-warrior" id="iconButton">
+					<rect>
+						<title>Warrior</title>
+					</rect>
+				</svg>
+			</button>
 		</div>
-		<div>
-		<span class="filterText">Type:</span>
-        <button class="btn" onClick="filterSelection('physicalFilter')">
-            <svg class="icon-physical" id="iconButton"></svg>
-		</button>
-		<button class="btn" onClick="filterSelection('magicalFilter')">
-            <svg class="icon-magical" id="iconButton"></svg>
-        </button>
+		<div class="btn-group">
+			<span class="filterText"></span>
+			<button class="btn" onClick="filterSelection('meleeFilter')">
+				<svg class="icon-melee" id="iconButton">
+					<rect>
+						<title>Melee</title>
+					</rect>
+				</svg>
+			</button>
+			<button class="btn" onClick="filterSelection('rangedFilter')">
+				<svg class="icon-ranged" id="iconButton">
+					<rect>
+						<title>Ranged</title>
+					</rect>
+				</svg>
+			</button>
 		</div>
-		<div>
-        <span class="filterText">Pantheon:</span>
-		<button class="btn" onClick="filterSelection('arthurianFilter')">
-            <svg class="icon-arthurian" id="iconButton"></svg>
-        </button>
-		<button class="btn" onClick="filterSelection('babylonianFilter')">
-            <svg class="icon-babylonian" id="iconButton"></svg>
-        </button>
-		<button class="btn" onClick="filterSelection('celticFilter')">
-            <svg class="icon-celtic" id="iconButton"></svg>
-        </button>
-		<button class="btn" onClick="filterSelection('chineseFilter')">
-            <svg class="icon-chinese" id="iconButton"></svg>
-        </button>
-		<button class="btn" onClick="filterSelection('egyptianFilter')">
-            <svg class="icon-egyptian" id="iconButton"></svg>
-        </button>
-		<button class="btn" onClick="filterSelection('great-old-onesFilter')">
-            <svg class="icon-great-old-ones" id="iconButton"></svg>
-        </button>
-		<button class="btn" onClick="filterSelection('greekFilter')">
-            <svg class="icon-greek" id="iconButton"></svg>
-        </button>
-		<button class="btn" onClick="filterSelection('hinduFilter')">
-            <svg class="icon-hindu" id="iconButton"></svg>
-        </button>
-		<button class="btn" onClick="filterSelection('japaneseFilter')">
-            <svg class="icon-japanese" id="iconButton"></svg>
-        </button>
-		<button class="btn" onClick="filterSelection('mayaFilter')">
-            <svg class="icon-maya" id="iconButton"></svg>
-        </button>
-		<button class="btn" onClick="filterSelection('norseFilter')">
-            <svg class="icon-norse" id="iconButton"></svg>
-        </button>
-		<button class="btn" onClick="filterSelection('polynesianFilter')">
-            <svg class="icon-polynesian" id="iconButton"></svg>
-        </button>
-		<button class="btn" onClick="filterSelection('romanFilter')">
-            <svg class="icon-roman" id="iconButton"></svg>
-        </button>
-		<button class="btn" onClick="filterSelection('slavicFilter')">
-            <svg class="icon-slavic" id="iconButton"></svg>
-        </button>
-		<button class="btn" onClick="filterSelection('voodooFilter')">
-            <svg class="icon-voodoo" id="iconButton"></svg>
-        </button>
-		<button class="btn" onClick="filterSelection('yorubaFilter')">
-            <svg class="icon-yoruba" id="iconButton"></svg>
-        </button>
+		<div class="btn-group">
+			<span class="filterText"></span>
+			<button class="btn" onClick="filterSelection('physicalFilter')">
+				<svg class="icon-physical" id="iconButton">
+					<rect>
+						<title>Physical</title>
+					</rect>
+				</svg>
+			</button>
+			<button class="btn" onClick="filterSelection('magicalFilter')">
+				<svg class="icon-magical" id="iconButton">
+					<rect>
+						<title>Magical</title>
+					</rect>
+				</svg>
+			</button>
 		</div>
-		<div>
-		<span class="filterText">Reset:</span>
-		<button class="btn" id="allGods" onClick="filterSelection('all')">
-			<svg class="icon-reset" id="iconButton"></svg>
-		</button>
+		<div class="btn-group">
+			<span class="filterText"></span>
+			<button class="btn" onClick="filterSelection('arthurianFilter')">
+				<svg class="icon-arthurian" id="iconButton">
+					<rect>
+						<title>Arthurian</title>
+					</rect>
+				</svg>
+			</button>
+			<button class="btn" onClick="filterSelection('babylonianFilter')">
+				<svg class="icon-babylonian" id="iconButton">
+					<rect>
+						<title>Babylonian</title>
+					</rect>
+				</svg>
+			</button>
+			<button class="btn" onClick="filterSelection('celticFilter')">
+				<svg class="icon-celtic" id="iconButton">
+					<rect>
+						<title>Celtic</title>
+					</rect>
+				</svg>
+			</button>
+			<button class="btn" onClick="filterSelection('chineseFilter')">
+				<svg class="icon-chinese" id="iconButton">
+					<rect>
+						<title>Chinese</title>
+					</rect>
+				</svg>
+			</button>
+			<button class="btn" onClick="filterSelection('egyptianFilter')">
+				<svg class="icon-egyptian" id="iconButton">
+					<rect>
+						<title>Egyptian</title>
+					</rect>
+				</svg>
+			</button>
+			<button class="btn" onClick="filterSelection('great-old-onesFilter')">
+				<svg class="icon-great-old-ones" id="iconButton">
+					<rect>
+						<title>Great Old Ones</title>
+					</rect>
+				</svg>
+			</button>
+			<button class="btn" onClick="filterSelection('greekFilter')">
+				<svg class="icon-greek" id="iconButton">
+					<rect>
+						<title>Greek</title>
+					</rect>
+				</svg>
+			</button>
+			<button class="btn" onClick="filterSelection('hinduFilter')">
+				<svg class="icon-hindu" id="iconButton">
+					<rect>
+						<title>Hindu</title>
+					</rect>
+				</svg>
+			</button>
+			<button class="btn" onClick="filterSelection('japaneseFilter')">
+				<svg class="icon-japanese" id="iconButton">
+					<rect>
+						<title>Japanese</title>
+					</rect>
+				</svg>
+			</button>
+			<button class="btn" onClick="filterSelection('mayaFilter')">
+				<svg class="icon-maya" id="iconButton">
+					<rect>
+						<title>Maya</title>
+					</rect>
+				</svg>
+			</button>
+			<button class="btn" onClick="filterSelection('norseFilter')">
+				<svg class="icon-norse" id="iconButton">
+					<rect>
+						<title>Norse</title>
+					</rect>
+				</svg>
+			</button>
+			<button class="btn" onClick="filterSelection('polynesianFilter')">
+				<svg class="icon-polynesian" id="iconButton">
+					<rect>
+						<title>Polynesian</title>
+					</rect>
+				</svg>
+			</button>
+			<button class="btn" onClick="filterSelection('romanFilter')">
+				<svg class="icon-roman" id="iconButton">
+					<rect>
+						<title>Roman</title>
+					</rect>
+				</svg>
+			</button>
+			<button class="btn" onClick="filterSelection('slavicFilter')">
+				<svg class="icon-slavic" id="iconButton">
+					<rect>
+						<title>Slavic</title>
+					</rect>
+				</svg>
+			</button>
+			<button class="btn" onClick="filterSelection('voodooFilter')">
+				<svg class="icon-voodoo" id="iconButton">
+					<rect>
+						<title>Voodoo</title>
+					</rect>
+				</svg>
+			</button>
+			<button class="btn" onClick="filterSelection('yorubaFilter')">
+				<svg class="icon-yoruba" id="iconButton">
+					<rect>
+						<title>Yoruba</title>
+					</rect>
+				</svg>
+			</button>
+		</div>
+		<div class="btn-group">
+			<span class="filterText"></span>
+			<button class="btn" id="allGods" onClick="filterSelection('all')">
+				<svg class="icon-reset" id="iconButton">
+					<rect>
+						<title>Reset</title>
+					</rect>
+				</svg>
+			</button>
 		</div>
 	</div>
 
@@ -1356,88 +1464,40 @@
 	<!--Insert God Card Icons-->
 	<script>
 	//Insert role specific icons
-	$(".assassin").append("<svg class='icon-assassin c'><rect><title>Assassin</title></rect></svg>");
-	$(".guardian").append("<svg class='icon-guardian c'><rect><title>Guardian</title></rect></svg>");
-	$(".hunter").append("<svg class='icon-hunter c'><rect><title>Hunter</title></rect></svg>");
-	$(".mage").append("<svg class='icon-mage c'><rect><title>Mage</title></rect></svg>");
-	$(".warrior").append("<svg class='icon-warrior c'><rect><title>Warrior</title></rect></svg>");
+	$(".assassin").append("<button class=\"btn\" onClick=\"filterSelection('assassinFilter')\"><svg class='icon-assassin c'><rect><title>Assassin</title></rect></svg></button>");
+	$(".guardian").append("<button class=\"btn\" onClick=\"filterSelection('guardianFilter')\"><svg class='icon-guardian c'><rect><title>Guardian</title></rect></svg>");
+	$(".hunter").append("<button class=\"btn\" onClick=\"filterSelection('hunterFilter')\"><svg class='icon-hunter c'><rect><title>Hunter</title></rect></svg>");
+	$(".mage").append("<button class=\"btn\" onClick=\"filterSelection('mageFilter')\"><svg class='icon-mage c'><rect><title>Mage</title></rect></svg>");
+	$(".warrior").append("<button class=\"btn\" onClick=\"filterSelection('warriorFilter')\"><svg class='icon-warrior c'><rect><title>Warrior</title></rect></svg>");
 
 	//Insert pantheon specific icons
-	$(".arthurian").append("<svg class='icon-arthurian c'><rect><title>Arthurian</title></rect></svg>");
-	$(".babylonian").append("<svg class='icon-babylonian c'><rect><title>Babylonian</title></rect></svg>");
-	$(".celtic").append("<svg class='icon-celtic c'><rect><title></title>Celtic</rect></svg>");
-	$(".chinese").append("<svg class='icon-chinese c'><rect><title>Chinese</title></rect></svg>");
-	$(".egyptian").append("<svg class='icon-egyptian c'><rect><title>Egyptian</title></rect></svg>");
-	$(".great-old-ones").append("<svg class='icon-great-old-ones c'><rect><title>Great Old Ones</title></rect></svg>");
-	$(".greek").append("<svg class='icon-greek c'><rect><title></title>Greek</rect></svg>");
-	$(".hindu").append("<svg class='icon-hindu c'><rect><title>Hindu</title></rect></svg>");
-	$(".japanese").append("<svg class='icon-japanese c'><rect><title>Japanese</title></rect></svg>");
-	$(".maya").append("<svg class='icon-maya c'><rect><title>Maya</title></rect></svg>");
-	$(".norse").append("<svg class='icon-norse c'><rect><title>Norse</title></rect></svg>");
-	$(".polynesian").append("<svg class='icon-polynesian c'><rect><title>Polynesian</title></rect></svg>");
-	$(".roman").append("<svg class='icon-roman c'><rect><title></title>Roman</rect></svg>");
-	$(".slavic").append("<svg class='icon-slavic c'><rect><title>Slavic</title></rect></svg>");
-	$(".voodoo").append("<svg class='icon-voodoo c'><rect><title>Voodoo</title></rect></svg>");
-	$(".yoruba").append("<svg class='icon-yoruba c'><rect><title>Yoruba</title></rect></svg>");
+	$(".arthurian").append("<button class=\"btn\" onClick=\"filterSelection('arthurianFilter')\"><svg class='icon-arthurian c'><rect><title>Arthurian</title></rect></svg>");
+	$(".babylonian").append("<button class=\"btn\" onClick=\"filterSelection('babylonianFilter')\"><svg class='icon-babylonian c'><rect><title>Babylonian</title></rect></svg>");
+	$(".celtic").append("<button class=\"btn\" onClick=\"filterSelection('celticFilter')\"><svg class='icon-celtic c'><rect><title></title>Celtic</rect></svg>");
+	$(".chinese").append("<button class=\"btn\" onClick=\"filterSelection('chineseFilter')\"><svg class='icon-chinese c'><rect><title>Chinese</title></rect></svg>");
+	$(".egyptian").append("<button class=\"btn\" onClick=\"filterSelection('egyptianFilter')\"><svg class='icon-egyptian c'><rect><title>Egyptian</title></rect></svg>");
+	$(".great-old-ones").append("<button class=\"btn\" onClick=\"filterSelection('great-old-onesFilter')\"><svg class='icon-great-old-ones c'><rect><title>Great Old Ones</title></rect></svg>");
+	$(".greek").append("<button class=\"btn\" onClick=\"filterSelection('greekFilter')\"><svg class='icon-greek c'><rect><title></title>Greek</rect></svg>");
+	$(".hindu").append("<button class=\"btn\" onClick=\"filterSelection('hinduFilter')\"><svg class='icon-hindu c'><rect><title>Hindu</title></rect></svg>");
+	$(".japanese").append("<button class=\"btn\" onClick=\"filterSelection('japaneseFilter')\"><svg class='icon-japanese c'><rect><title>Japanese</title></rect></svg>");
+	$(".maya").append("<button class=\"btn\" onClick=\"filterSelection('mayaFilter')\"><svg class='icon-maya c'><rect><title>Maya</title></rect></svg>");
+	$(".norse").append("<button class=\"btn\" onClick=\"filterSelection('norseFilter')\"><svg class='icon-norse c'><rect><title>Norse</title></rect></svg>");
+	$(".polynesian").append("<button class=\"btn\" onClick=\"filterSelection('polynesianFilter')\"><svg class='icon-polynesian c'><rect><title>Polynesian</title></rect></svg>");
+	$(".roman").append("<button class=\"btn\" onClick=\"filterSelection('romanFilter')\"><svg class='icon-roman c'><rect><title></title>Roman</rect></svg>");
+	$(".slavic").append("<button class=\"btn\" onClick=\"filterSelection('slavicFilter')\"><svg class='icon-slavic c'><rect><title>Slavic</title></rect></svg>");
+	$(".voodoo").append("<button class=\"btn\" onClick=\"filterSelection('voodooFilter')\"><svg class='icon-voodoo c'><rect><title>Voodoo</title></rect></svg>");
+	$(".yoruba").append("<button class=\"btn\" onClick=\"filterSelection('yorubaFilter')\"><svg class='icon-yoruba c'><rect><title>Yoruba</title></rect></svg>");
 
 	//Insert attack range specific icons
-	$(".melee").append("<svg class='icon-melee c'><rect><title>Melee</title></rect></svg>");
-	$(".ranged").append("<svg class='icon-ranged c'><rect><title>Ranged</title></rect></svg>");
+	$(".melee").append("<button class=\"btn\" onClick=\"filterSelection('meleeFilter')\"><svg class='icon-melee c'><rect><title>Melee</title></rect></svg>");
+	$(".ranged").append("<button class=\"btn\" onClick=\"filterSelection('rangedFilter')\"><svg class='icon-ranged c'><rect><title>Ranged</title></rect></svg>");
 
 	//Insert attack type specific icons
-	$(".physical").append("<svg class='icon-physical c'><rect><title>Physical</title></rect></svg>");
-	$(".magical").append("<svg class='icon-magical c'><rect><title>Magical</title></rect></svg>");
+	$(".physical").append("<button class=\"btn\" onClick=\"filterSelection('physicalFilter')\"><svg class='icon-physical c'><rect><title>Physical</title></rect></svg>");
+	$(".magical").append("<button class=\"btn\" onClick=\"filterSelection('magicalFilter')\"><svg class='icon-magical c'><rect><title>Magical</title></rect></svg>");
 
 </script>
-<script>
-// 	window.onload = function assassinFilter(){
-// 	$(".assassin").each(function (index, value) { 
-// 		$(value).parent().parent().addClass("assassinFilter");
-// 	})
-// }
-// window.onload = function guardianFilter(){
-// 	$(".guardian").each(function (index, value) { 
-// 		$(value).parent().parent().addClass("guardianFilter");
-// 	})
-// }
-// window.onload = function hunterFilter(){
-// 	$(".hunter").each(function (index, value) { 
-// 		$(value).parent().parent().addClass("hunterFilter");
-// 	})
-// }
-// window.onload = function mageFilter(){
-// 	$(".mage").each(function (index, value) { 
-// 		$(value).parent().parent().addClass("mageFilter");
-// 	})
-// }
-// window.onload = function warriorFilter(){
-// 	$(".warrior").each(function (index, value) { 
-// 		$(value).parent().parent().addClass("warriorFilter");
-// 	})
-// }
 
-// window.onload = function meleeFilter(){
-// 	$(".melee").each(function (index, value) { 
-// 		$(value).parent().parent().addClass("meleeFilter");
-// 	})
-// }
-// window.onload = function rangedFilter(){
-// 	$(".ranged").each(function (index, value) { 
-// 		$(value).parent().parent().addClass("rangedFilter");
-// 	})
-// }
-
-// window.onload = function physicalFilter(){
-// 	$(".physical").each(function (index, value) { 
-// 		$(value).parent().parent().addClass("physicalFilter");
-// 	})
-// }
-// window.onload = function magicalFilter(){
-// 	$(".magical").each(function (index, value) { 
-// 		$(value).parent().parent().addClass("magicalFilter");
-// 	})
-// }
-</script>
 <!--Custom JS-->
 <script src="SmiteAPI.js"></script>
 <script>//Click to show all gods	
