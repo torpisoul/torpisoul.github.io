@@ -39,8 +39,8 @@
 	<!--Add search filter (name, title, class, pantheon, attack range, attack type)-->
 	<div id="godFilterButtons" class="btn-toolbar">
 		<div class="input-group">
-			<div class="input-group-text" id="godNameFilter"></div>
-			<input type="text" class="form-control" placeholder="Enter God Name">
+			<div class="input-group-text"><i class="bi bi-search"></i></div>
+			<input type="text" id="godFilterInput" class="form-control" placeholder="God Name..." onkeyup="godNameFilter()">
 		</div>
 		<div class="btn-group">
 			<span class="filterText"></span>
