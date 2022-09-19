@@ -103,15 +103,32 @@ ReactDOM.render( /*#__PURE__*/React.createElement(StarrySky, null), document.get
 filterSelection("all")
 function filterSelection(c) {
   var x, i;
+  // attempting to integrate god name filter
   x = document.getElementsByClassName("god-class");
-  // parent = document.getElementsByClassName("god-class");
-  // firstChild = parent.querySelector("god-card");
-  // x = firstChild.querySelector("god-thumb-icon");
   if (c == "all") c = "";
   // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
   for (i = 0; i < x.length; i++) {
     w3RemoveClass(x[i], "show");
     if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
+
+  //filterSelection("all")
+function godNameFilter(c) {
+  var input, filter, ul, li, a, i, x, txtValue;
+  input = document.getElementById('godFilterInput');
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("god-list");
+  li = ul.querySelectorAll("div.god-class > div.god-card");
+  x = document.getElementsByClassName("god-class");
+
+  if (c == "all") c = "";
+  // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+    for (i = 0; i < x.length; i++) {
+    a = li[i].getElementsByTagName("h1")[0];
+    txtValue = a.textContent || a.innerText;
+    w3RemoveClass(x[i], "show");
+    if (txtValue.toUpperCase().indexOf(filter) > -1) w3AddClass(x[i], "show");
   }
 }
 
@@ -150,5 +167,27 @@ for (var i = 0; i < btns.length; i++) {
     this.className += " active";
   });
 }
-/* end search filter - god page */
 
+
+// search God by name
+//function searchGodName() {
+  // Declare variables
+  // var input, filter, ul, li, a, i, txtValue;
+  // input = document.getElementById('godFilterInput');
+  // filter = input.value.toUpperCase();
+  // ul = document.getElementById("god-list");
+  // x = document.getElementsByClassName("god-class");
+  // li = ul.querySelectorAll("div.god-class > div.god-card");
+
+  // Loop through all list items, and hide those who don't match the search query
+//   for (i = 0; i < li.length; i++) {
+//     a = li[i].getElementsByTagName("h1")[0];
+//     txtValue = a.textContent || a.innerText;
+//     if (txtValue.toUpperCase().indexOf(filter) > -1) {
+//       li[i].style.display = "";
+//     } else {
+//       li[i].style.display = "none";
+//     }
+//   }
+// }
+/* end search filter - god page */
