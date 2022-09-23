@@ -156,38 +156,4 @@ function w3RemoveClass(element, name) {
   }
   element.className = arr1.join(" ");
 }
-
-// Add active class to the current control button (highlight it)
-var btnContainer = document.getElementById("godFilterButtons");
-var btns = btnContainer.getElementsByClassName("btn");
-for (var i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", function() {
-    var current = document.getElementsByClassName("active");
-    current[0].className = current[0].className.replace(" active", "");
-    this.className += " active";
-  });
-}
-
-
-// search God by name
-//function searchGodName() {
-  // Declare variables
-  // var input, filter, ul, li, a, i, txtValue;
-  // input = document.getElementById('godFilterInput');
-  // filter = input.value.toUpperCase();
-  // ul = document.getElementById("god-list");
-  // x = document.getElementsByClassName("god-class");
-  // li = ul.querySelectorAll("div.god-class > div.god-card");
-
-  // Loop through all list items, and hide those who don't match the search query
-//   for (i = 0; i < li.length; i++) {
-//     a = li[i].getElementsByTagName("h1")[0];
-//     txtValue = a.textContent || a.innerText;
-//     if (txtValue.toUpperCase().indexOf(filter) > -1) {
-//       li[i].style.display = "";
-//     } else {
-//       li[i].style.display = "none";
-//     }
-//   }
-// }
 /* end search filter - god page */

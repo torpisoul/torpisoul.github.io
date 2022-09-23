@@ -72,7 +72,7 @@
 					</rect>
 				</svg>
 			</button>
-			<button class="btn" onClick="filterSelection('warriorFilter')">
+			<button class="btn" onClick="filterSelection('warriorFilter');">
 				<svg class="icon-warrior" id="iconButton">
 					<rect>
 						<title>Warrior</title>
@@ -1496,6 +1496,13 @@
 	$(".physical").append("<button class=\"btn\" onClick=\"filterSelection('physicalFilter')\"><svg class='icon-physical c'><rect><title>Physical</title></rect></svg>");
 	$(".magical").append("<button class=\"btn\" onClick=\"filterSelection('magicalFilter')\"><svg class='icon-magical c'><rect><title>Magical</title></rect></svg>");
 
+</script>
+
+<script>
+		$(".btn").click(function(){
+			$(".btn").not(this).children().removeClass("c");
+			$(this).children().addClass("c");
+		});
 </script>
 
 <!--Custom JS-->

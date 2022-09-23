@@ -468,26 +468,50 @@ h1 {
 .icon-great-old-ones {
   background-image: url(Images/icons/icon-great-old-ones.png);
 }
+.icon-great-old-ones.c {
+  background-image: url(Images/icons-coloured/icon-great-old-ones.png);
+}
 .icon-babylonian {
   background-image: url(Images/icons/icon-babylonian.png);
+}
+.icon-babylonian.c {
+  background-image: url(Images/icons-coloured/icon-babylonian.png);
 }
 .icon-arthurian {
   background-image: url(Images/icons/icon-arthurian.png);
 }
+.icon-arthurian.c {
+  background-image: url(Images/icons-coloured/icon-arthurian.png);
+}
 .icon-yoruba {
   background-image: url(Images/icons/icon-yoruba.png);
+}
+.icon-yoruba.c {
+  background-image: url(Images/icons-coloured/icon-yoruba.png);
 }
 .icon-melee {
   background-image: url(Images/icons/icon-melee.svg);
 }
+.icon-melee.c {
+  background-image: url(Images/icons-coloured/icon-melee.svg);
+}
 .icon-ranged {
   background-image: url(Images/icons/icon-ranged.svg);
+}
+.icon-ranged.c {
+  background-image: url(Images/icons-coloured/icon-ranged.svg);
 }
 .icon-physical {
   background-image: url(Images/icons/icon-physical.svg);
 }
+.icon-physical.c {
+  background-image: url(Images/icons-coloured/icon-physical.svg);
+}
 .icon-magical {
   background-image: url(Images/icons/icon-magical.svg);
+}
+.icon-magical.c {
+  background-image: url(Images/icons-coloured/icon-magical.svg);
 }
 .icon-reset {
   background-image: url(Images/icons/arrow-counterclockwise.svg);
