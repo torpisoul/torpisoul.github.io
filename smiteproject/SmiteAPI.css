@@ -554,8 +554,7 @@ rect {
   justify-content: center;
 }
 .btn-toolbar .input-group {
-  width: 90%;
-  padding-top: 1rem;
+  width: 20%;
 }
 .btn-group {
   padding: 1rem;
