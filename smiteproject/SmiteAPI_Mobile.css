@@ -5,7 +5,8 @@
     }
     .navbar a,
     a.navbar.nav-item.active {
-        font-size: 1.2rem;
+        font-size: 2rem;
+        padding: 0.5rem;
     }
     /* Home */
     .navbar-img {

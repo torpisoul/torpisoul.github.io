@@ -4,4 +4,8 @@
         margin-left: 2rem;
         width: 96%;
     }
+    .navbar a,
+    a.navbar.nav-item.active {
+        font-size: 3rem;
+    }
 }
