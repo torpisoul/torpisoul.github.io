@@ -8,4 +8,8 @@
     a.navbar.nav-item.active {
         font-size: 3rem;
     }
+    .btn-toolbar .input-group {
+        width: 90%;
+        padding-top: 1rem;
+    }
 }
