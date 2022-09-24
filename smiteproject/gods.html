@@ -9,9 +9,6 @@
 		<!--Responsive CSS Library-->
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 		
-		<!--JQuery-->
-		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-
 		<!--Custom CSS-->
 		<link rel="stylesheet" media="all" href="SmiteAPI.css">
 		<link rel="stylesheet" media="screen and (min-width: 992px) and (max-width: 1200px)" href="SmiteAPI_Desktop.css">
@@ -19,7 +16,7 @@
 		<link rel="stylesheet" media="screen and (max-width: 767px)" href="SmiteAPI_Mobile.css">
 		
 	<!--Starry Sky - requires Anime JS-->
-	<!--<div id="root"></div>-->
+	<div id="root"></div>
 	<header>Project Athena</header>
 
 </head>
@@ -1456,60 +1453,23 @@
 			</div>
 		</div>
 	</div>
-	<!--Anime JS-->
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/react/16.12.0/umd/react.production.min.js'></script>
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.12.0/umd/react-dom.production.min.js'></script>
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/animejs/3.1.0/anime.min.js'></script>
 
-	<!--Insert God Card Icons-->
-	<script>
-	//Insert role specific icons
-	$(".assassin").append("<button class=\"btn\" onClick=\"filterSelection('assassinFilter')\"><svg class='icon-assassin c'><rect><title>Assassin</title></rect></svg></button>");
-	$(".guardian").append("<button class=\"btn\" onClick=\"filterSelection('guardianFilter')\"><svg class='icon-guardian c'><rect><title>Guardian</title></rect></svg>");
-	$(".hunter").append("<button class=\"btn\" onClick=\"filterSelection('hunterFilter')\"><svg class='icon-hunter c'><rect><title>Hunter</title></rect></svg>");
-	$(".mage").append("<button class=\"btn\" onClick=\"filterSelection('mageFilter')\"><svg class='icon-mage c'><rect><title>Mage</title></rect></svg>");
-	$(".warrior").append("<button class=\"btn\" onClick=\"filterSelection('warriorFilter')\"><svg class='icon-warrior c'><rect><title>Warrior</title></rect></svg>");
+<!--Anime JS-->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/react/16.12.0/umd/react.production.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.12.0/umd/react-dom.production.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/animejs/3.1.0/anime.min.js'></script>
 
-	//Insert pantheon specific icons
-	$(".arthurian").append("<button class=\"btn\" onClick=\"filterSelection('arthurianFilter')\"><svg class='icon-arthurian c'><rect><title>Arthurian</title></rect></svg>");
-	$(".babylonian").append("<button class=\"btn\" onClick=\"filterSelection('babylonianFilter')\"><svg class='icon-babylonian c'><rect><title>Babylonian</title></rect></svg>");
-	$(".celtic").append("<button class=\"btn\" onClick=\"filterSelection('celticFilter')\"><svg class='icon-celtic c'><rect><title></title>Celtic</rect></svg>");
-	$(".chinese").append("<button class=\"btn\" onClick=\"filterSelection('chineseFilter')\"><svg class='icon-chinese c'><rect><title>Chinese</title></rect></svg>");
-	$(".egyptian").append("<button class=\"btn\" onClick=\"filterSelection('egyptianFilter')\"><svg class='icon-egyptian c'><rect><title>Egyptian</title></rect></svg>");
-	$(".great-old-ones").append("<button class=\"btn\" onClick=\"filterSelection('great-old-onesFilter')\"><svg class='icon-great-old-ones c'><rect><title>Great Old Ones</title></rect></svg>");
-	$(".greek").append("<button class=\"btn\" onClick=\"filterSelection('greekFilter')\"><svg class='icon-greek c'><rect><title></title>Greek</rect></svg>");
-	$(".hindu").append("<button class=\"btn\" onClick=\"filterSelection('hinduFilter')\"><svg class='icon-hindu c'><rect><title>Hindu</title></rect></svg>");
-	$(".japanese").append("<button class=\"btn\" onClick=\"filterSelection('japaneseFilter')\"><svg class='icon-japanese c'><rect><title>Japanese</title></rect></svg>");
-	$(".maya").append("<button class=\"btn\" onClick=\"filterSelection('mayaFilter')\"><svg class='icon-maya c'><rect><title>Maya</title></rect></svg>");
-	$(".norse").append("<button class=\"btn\" onClick=\"filterSelection('norseFilter')\"><svg class='icon-norse c'><rect><title>Norse</title></rect></svg>");
-	$(".polynesian").append("<button class=\"btn\" onClick=\"filterSelection('polynesianFilter')\"><svg class='icon-polynesian c'><rect><title>Polynesian</title></rect></svg>");
-	$(".roman").append("<button class=\"btn\" onClick=\"filterSelection('romanFilter')\"><svg class='icon-roman c'><rect><title></title>Roman</rect></svg>");
-	$(".slavic").append("<button class=\"btn\" onClick=\"filterSelection('slavicFilter')\"><svg class='icon-slavic c'><rect><title>Slavic</title></rect></svg>");
-	$(".voodoo").append("<button class=\"btn\" onClick=\"filterSelection('voodooFilter')\"><svg class='icon-voodoo c'><rect><title>Voodoo</title></rect></svg>");
-	$(".yoruba").append("<button class=\"btn\" onClick=\"filterSelection('yorubaFilter')\"><svg class='icon-yoruba c'><rect><title>Yoruba</title></rect></svg>");
+<!-- JQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
-	//Insert attack range specific icons
-	$(".melee").append("<button class=\"btn\" onClick=\"filterSelection('meleeFilter')\"><svg class='icon-melee c'><rect><title>Melee</title></rect></svg>");
-	$(".ranged").append("<button class=\"btn\" onClick=\"filterSelection('rangedFilter')\"><svg class='icon-ranged c'><rect><title>Ranged</title></rect></svg>");
-
-	//Insert attack type specific icons
-	$(".physical").append("<button class=\"btn\" onClick=\"filterSelection('physicalFilter')\"><svg class='icon-physical c'><rect><title>Physical</title></rect></svg>");
-	$(".magical").append("<button class=\"btn\" onClick=\"filterSelection('magicalFilter')\"><svg class='icon-magical c'><rect><title>Magical</title></rect></svg>");
-
-</script>
-
-<script>
-		$(".btn").click(function(){
-			$(".btn").not(this).children().removeClass("c");
-			$(this).children().addClass("c");
-		});
-</script>
+<!-- Starry Sky background - animeJs -->
+<script src="StarrySky.js"></script>
 
 <!--Custom JS-->
 <script src="SmiteAPI.js"></script>
-<script>//Click to show all gods	
-	type="text/javascript">document.getElementById("allGods").click();
-	</script>
+
+<!-- JQuery Functions -->
+<script src="JQueryFunctions.js"></script>
 </body>
 
 </html>
