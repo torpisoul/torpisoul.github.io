@@ -1,0 +1,82 @@
+			<!-- Trialing Modal -->
+
+			<div class="godModal">
+				<div class="modalGoesHere">
+					<div class="Ability/Lore">
+						<div class="Abilities active">
+							<div class="videoOfAbility">
+								<!-- active ability video - needs to change to match .active ability -->
+								<iframe title="active-ability" src="https://www.youtube-nocookie.com/embed/Gl9HA0xCYxE?theme=dark&amp;controls=0&amp;color=white&amp;autohide=1&amp;modestbranding=1&amp;showinfo=0&amp;rel=0&amp;hd=1"></iframe><!--ripped from HiRez for testing modal layout-->
+							</div>
+							<div class="listOfAbilities">
+								<div class="abilityDetail_1">
+									<img class="abilityIcon" src="https://webcdn.hirezstudios.com/smite/god-abilities/shield-of-achilles.jpg"><!-- lookup active god name, then return icon image link - need to store these images myself, just using HiRez CDN for testing -->
+									<div class="abilityCount">1</div>
+									<div class="abilityTitleSmall">AbilityTitle1</div><!-- lookup active god name, then return ability title1 -->
+								</div>
+
+								<div class="ability2">
+									<img class="abilityIcon" src="https://webcdn.hirezstudios.com/smite/god-abilities/radiant-glory.jpg"><!-- lookup active god name, then return icon image link - need to store these images myself, just using HiRez CDN for testing -->
+									<div class="abilityCount">2</div>
+									<div class="abilityTitleSmall">AbilityTitle2</div><!-- lookup active god name, then return ability title2 -->
+								</div>
+
+								<div class="ability3">
+									<img class="abilityIcon" src="https://webcdn.hirezstudios.com/smite/god-abilities/combat-dodge.jpg"><!-- lookup active god name, then return icon image link - need to store these images myself, just using HiRez CDN for testing -->
+									<div class="abilityTitleSmall">AbilityTitle3</div><!-- lookup active god name, then return ability title3 -->
+								</div>
+
+								<div class="ability4">
+									<img class="abilityIcon" src="https://webcdn.hirezstudios.com/smite/god-abilities/fatal-strike.jpg"><!-- lookup active god name, then return icon image link - need to store these images myself, just using HiRez CDN for testing -->
+									<div class="abilityCount">4</div>
+									<div class="abilityTitleSmall">AbilityTitle4</div><!-- lookup active god name, then return ability title4 -->
+								</div>
+
+								<div class="abilityPassive active"><!-- .active is here to set the passive ability as visible when modal opens -->
+									<img class="abilityIcon" src="https://webcdn.hirezstudios.com/smite/god-abilities/gift-of-the-gods.jpg"><!-- lookup active god name, then return icon image link - need to store these images myself, just using HiRez CDN for testing -->
+									<div class="abilityCount">PassiveAbility</div>
+									<div class="abilityTitleSmall">AbilityTitlePassive</div><!-- lookup active god name, then return passive ability title -->
+								</div>
+								<!-- the below needs to dymanically select the active ability description -->
+								<div class="abilityExpanded">
+									<title class="abilityTitle">
+										<!-- This value should equal the .abilityTitleSmall text() -->
+										Example Title Goes Here
+									</title>
+									<p class="abilityDescription">
+										<!-- This value needs to lookup the above value, then return the corresponding ability details -->
+										Example Description Goes Here
+									</p>
+									
+										<!-- This ul needs to lookup the amount of stat modifiers exist for the ability, then create the neccessary number of li items -->
+									<ul class="abilityStats">
+										<li class="abilityStatDetails">
+											Example ability stat goes here
+										</li>
+										<li class="abilityStatDetails">
+											Example ability stat goes here
+										</li>
+										<li class="abilityStatDetails">
+											Example ability stat goes here
+										</li>
+										<li class="abilityStatDetails">
+											Example ability stat goes here
+										</li>
+									</ul>
+								</div>
+									
+							</div>
+						</div>
+					</div>
+					<div class="Lore">
+						<div class="loreVideo">
+								<!-- needs to lookup active god, then return corresponding lore video -->
+						</div>
+						<div class="loreDetails">
+								<!-- needs to lookup active god, then return corresponding lore text -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+			<!-- End of Modal -->
