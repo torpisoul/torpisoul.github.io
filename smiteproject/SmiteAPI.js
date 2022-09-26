@@ -58,4 +58,4 @@ function w3RemoveClass(element, name) {
 /* end search filter - god page */
 
 //Show all gods by default
-document.getElementById("allGods").click();
+window.onload = function() { document.getElementById("allGods").click()};
