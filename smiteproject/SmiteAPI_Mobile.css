@@ -55,12 +55,12 @@
     .god-thumb-text > span {
         font-size: 2rem;
     }
-    .new > div > div.god-thumb-icon > svg,
-    div > div.god-thumb-icon > svg {
-        height: 2.5rem;
-        width: 2.5rem;
-        background-size: 2.5rem 2.5rem;
-        margin: 0.5rem;
+    .new > div.god-card > div > button.btn > svg[class^="icon-"] {
+        height: 2rem;
+        width: 2rem;
+        background-size: 2rem;
+        margin: unset;
+        margin-right: 0.4rem;
     }
     .btn-group {
         display: flex;
