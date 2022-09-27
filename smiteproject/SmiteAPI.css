@@ -296,26 +296,25 @@ h1 {
   display: grid;
 
 }
-  .new.god-class { 
-    grid-column: 1/ span 2;
-    grid-row: 1/ span 2;
-  }
-  .new > .god-card, .new > .god-card > .god-thumb {
-    height: 21rem;
-  }
-  .new > div > article > h1 {
-    font-size: 4rem;
-  }
-  .new > div > article > span {
-    font-size: 2rem;
-  }
-  /*.new > div > div.god-thumb-icon > svg {*/
-  .new > div.god-card > div > button.btn > svg[class^="icon-"] {
-    height: 3rem;
-    width: 3rem;
-    background-size: 3rem;
-    margin: 1rem;
-  }
+.new.god-class { 
+  grid-column: 1/ span 2;
+  grid-row: 1/ span 2;
+}
+.new > .god-card, .new > .god-card > .god-thumb {
+  height: 21rem;
+}
+.new > div > article > h1 {
+  font-size: 4rem;
+}
+.new > div > article > span {
+  font-size: 2rem;
+}
+.new > div.god-card > div > button.btn > svg[class^="icon-"] {
+  height: 3rem;
+  width: 3rem;
+  background-size: 3rem;
+  margin: 1rem;
+}
 .assassin > .card {
   --bs-card-border-color: var(--assassin);
 }
@@ -367,151 +366,154 @@ h1 {
 .icon-assassin {
   background-image: url(Images/icons/icon-assassin.svg);
 }
-.icon-assassin.c {
+.icon-assassin:hover, .icon-assassin.c {
   background-image: url(Images/icons-coloured/icon-assassin.svg)
 }
 .icon-guardian {
   background-image: url(Images/icons/icon-guardian.svg);
 }
-.icon-guardian.c {
+.icon-guardian:hover, .icon-guardian.c {
   background-image: url(Images/icons-coloured/icon-guardian.svg)
 }
 .icon-hunter {
   background-image: url(Images/icons/icon-hunter.svg);
 }
-.icon-hunter.c {
+.icon-hunter:hover, .icon-hunter.c {
   background-image: url(Images/icons-coloured/icon-hunter.svg)
 }
 .icon-mage {
   background-image: url(Images/icons/icon-mage.svg);
 }
-.icon-mage.c {
+.icon-mage:hover, .icon-mage.c {
   background-image: url(Images/icons-coloured/icon-mage.svg)
 }
 .icon-warrior {
   background-image: url(Images/icons/icon-warrior.svg);
 }
-.icon-warrior.c {
+.icon-warrior:hover, .icon-warrior.c {
   background-image: url(Images/icons-coloured/icon-warrior.svg)
 }
 .icon-norse {
   background-image: url(Images/icons/icon-norse.svg);
 }
-.icon-norse.c {
+.icon-norse:hover, .icon-norse.c {
   background-image: url(Images/icons-coloured/icon-norse.svg)
 }
 .icon-greek {
   background-image: url(Images/icons/icon-greek.svg);
 }
-.icon-greek.c {
+.icon-greek:hover, .icon-greek.c {
   background-image: url(Images/icons-coloured/icon-greek.svg)
 }
 .icon-maya {
   background-image: url(Images/icons/icon-maya.svg);
 }
-.icon-maya.c {
+.icon-maya:hover, .icon-maya.c {
   background-image: url(Images/icons-coloured/icon-maya.svg)
 }
 .icon-chinese {
   background-image: url(Images/icons/icon-chinese.svg);
 }
-.icon-chinese.c {
+.icon-chinese:hover, .icon-chinese.c {
   background-image: url(Images/icons-coloured/icon-chinese.svg)
 }
 .icon-hindu {
   background-image: url(Images/icons/icon-hindu.svg);
 }
-.icon-hindu.c {
+.icon-hindu:hover, .icon-hindu.c {
   background-image: url(Images/icons-coloured/icon-hindu.svg)
 }
 .icon-egyptian {
   background-image: url(Images/icons/icon-egyptian.svg);
 }
-.icon-egyptian.c {
+.icon-egyptian:hover, .icon-egyptian.c {
   background-image: url(Images/icons-coloured/icon-egyptian.svg)
 }
 .icon-roman {
   background-image: url(Images/icons/icon-roman.svg);
 }
-.icon-roman.c {
+.icon-roman:hover, .icon-roman.c {
   background-image: url(Images/icons-coloured/icon-roman.svg)
 }
 .icon-japanese {
   background-image: url(Images/icons/icon-japanese.svg);
 }
-.icon-japanese.c {
+.icon-japanese:hover, .icon-japanese.c {
   background-image: url(Images/icons-coloured/icon-japanese.svg)
 }
 .icon-celtic {
   background-image: url(Images/icons/icon-celtic.svg);
 }
-.icon-celtic.c {
+.icon-celtic:hover, .icon-celtic.c {
   background-image: url(Images/icons-coloured/icon-celtic.svg)
 }
 .icon-slavic {
   background-image: url(Images/icons/icon-slavic.svg);
 }
-.icon-slavic.c {
+.icon-slavic:hover, .icon-slavic.c {
   background-image: url(Images/icons-coloured/icon-slavic.svg)
 }
 .icon-voodoo {
   background-image: url(Images/icons/icon-voodoo.svg);
 }
-.icon-voodoo.c {
+.icon-voodoo:hover, .icon-voodoo.c {
   background-image: url(Images/icons-coloured/icon-voodoo.svg)
+}
+.god-thumb-icon > .btn > .icon-voodoo {
+  background-image: url(Images/icons-coloured/icon-voodoo-black.svg);
 }
 .icon-polynesian {
   background-image: url(Images/icons/icon-polynesian.svg);
 }
-.icon-polynesian.c {
+.icon-polynesian:hover, .icon-polynesian.c {
   background-image: url(Images/icons-coloured/icon-polynesian.svg)
 }
 .icon-great-old-ones {
   background-image: url(Images/icons/icon-great-old-ones.png);
 }
-.icon-great-old-ones.c {
+.icon-great-old-ones:hover, .icon-great-old-ones.c {
   background-image: url(Images/icons-coloured/icon-great-old-ones.png);
 }
 .icon-babylonian {
   background-image: url(Images/icons/icon-babylonian.png);
 }
-.icon-babylonian.c {
+.icon-babylonian:hover, .icon-babylonian.c {
   background-image: url(Images/icons-coloured/icon-babylonian.png);
 }
 .icon-arthurian {
   background-image: url(Images/icons/icon-arthurian.png);
 }
-.icon-arthurian.c {
+.icon-arthurian:hover, .icon-arthurian.c {
   background-image: url(Images/icons-coloured/icon-arthurian.png);
 }
 .icon-yoruba {
   background-image: url(Images/icons/icon-yoruba.png);
 }
-.icon-yoruba.c {
+.icon-yoruba:hover, .icon-yoruba.c {
   background-image: url(Images/icons-coloured/icon-yoruba.png);
 }
-.icon-melee {
+.icon-melee, .god-thumb-icon > .btn > .icon-melee.c {
   background-image: url(Images/icons/icon-melee.svg);
 }
-.icon-melee.c {
+.icon-melee:hover, .icon-melee.c {
   background-image: url(Images/icons-coloured/icon-melee.svg);
 }
-.icon-ranged {
+.icon-ranged, .god-thumb-icon > .btn > .icon-ranged.c {
   background-image: url(Images/icons/icon-ranged.svg);
 }
-.icon-ranged.c {
+.icon-ranged:hover, .icon-ranged.c {
   background-image: url(Images/icons-coloured/icon-ranged.svg);
 }
-.icon-physical {
+.icon-physical, .god-thumb-icon > .btn > .icon-physical.c {
   background-image: url(Images/icons/icon-physical.svg);
 }
-.icon-physical.c {
+.icon-physical:hover, .icon-physical.c {
   background-image: url(Images/icons-coloured/icon-physical.svg);
 }
-.icon-magical {
+.icon-magical, .god-thumb-icon > .btn > .icon-magical.c {
   background-image: url(Images/icons/icon-magical.svg);
 }
-.icon-magical.c {
+.icon-magical:hover, .icon-magical.c {
   background-image: url(Images/icons-coloured/icon-magical.svg);
 }
 .icon-reset {
