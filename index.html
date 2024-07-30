@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neumorphic Mobile-First Web App</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS for Neumorphic Design -->
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="smart-bar-spacer"></div>
+    <div class="container-fluid p-3">
+        <div class="header d-flex justify-content-between align-items-center">
+            <div class="product-name">Opt In</div>
+            <input type="text" class="form-control neumorphic-input search-bar" placeholder="search...">
+        </div>
+        <div class="content mt-1">
+            <!-- Content will change based on the page -->
+            <div class="content-your-feed">
+                <span class="your-feed">Your Feed</span>
+                <div class="user-info d-flex flex-column align-items-center">
+                    <!--<img src="user-avatar.jpg" alt="User Avatar" class="user-avatar mr-2">-->
+                    <div class="post-content neumorphic">
+                        <div>
+                            <small class="username">John Doe</small>
+                            <i class="fa-solid fa-user user-avatar"></i>
+                        </div>
+                        <p class="post-text">This is some example text to show what a text only post would look like</p>
+                    </div>
+                    <div class="post-content neumorphic">
+                        <i class="fa-solid fa-user user-avatar"></i>
+                        <small class="username">Jane Doe</small>
+                        <p class="post-text">This is some example text to show what a text and an image post would look like</p>
+                        <img src="bg-img-1.jpg" alt="" class="post-image">
+                    </div>
+                    <div class="self-post-content neumorphic">
+                        <div>
+                            <small class="username">Aaron James</small>
+                            <i class="fa-solid fa-user user-avatar"></i>
+                        </div>
+                        <p class="post-text">This is some example text to show what a text only post would look like, with a reply</p>
+                    </div>
+                </div>
+                <button class="btn btn-link text-muted p-0"><i class="fa-solid fa-ellipsis"></i></button>
+            </div>
+        </div>
+        <div class="footer d-flex justify-content-around align-items-end">
+            <button class="footer-icon-button neumorphic-circle"><i class="nav-button fa-solid fa-calendar-days"></i></button> <!-- Events -->
+            <button class="footer-icon-button neumorphic-circle"><i class="nav-button fa-solid fa-trophy"></i></button> <!-- Milestones -->
+            <button class="footer-icon-button neumorphic-circle neumorphic-circle-large"><i class="nav-button nav-button-main fa-solid fa-wand-magic-sparkles"></i></button> <!-- Home/Context -->
+            <button class="footer-icon-button neumorphic-circle"><i class="nav-button fa-solid fa-handshake"></i></button> <!-- Connections -->
+            <button class="footer-icon-button neumorphic-circle"><i class="nav-button fa-solid fa-gear"></i></button> <!-- Settings -->
+        </div>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Font Awesome for Icons -->
+    <script src="https://kit.fontawesome.com/28d5ae2e8b.js" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+:root {
+    --main: #ffffff;
+    --secondary: #333;
+    --dark-shadow: #b8b9be;
+    --light-shadow: #e0e0e0;
+}
+
+body {
+    background: var(--light-shadow);
+    font-family: 'Arial', sans-serif;
+}
+
+.your-feed {
+    font-size: 0.8rem;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.neumorphic {
+    border-radius: 1rem;
+    padding: 1rem;
+    background: var(--light-shadow);
+    box-shadow: 9px 9px 16px var(--dark-shadow), -9px -9px 16px var(--main);
+}
+
+.neumorphic-button {
+    border: none;
+    border-radius: 1rem;
+    background: var(--light-shadow);
+    box-shadow: 3px 3px 5px var(--dark-shadow), -3px -3px 5px var(--main);
+    color: var(--secondary);
+    padding: 0.75rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.neumorphic-button:active {
+    box-shadow: inset 3px 3px 5px var(--dark-shadow), inset -3px -3px 5px var(--main);
+}
+
+.neumorphic-circle {
+    border-radius: 50%;
+    width: 4rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--light-shadow);
+    box-shadow: 6px 6px 12px var(--dark-shadow), -6px -6px 12px var(--main);
+    border: none;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+.neumorphic-circle-large {
+    width: 5rem;
+    height: 4rem;
+}
+
+.neumorphic-circle:active {
+    box-shadow: inset 6px 6px 12px var(--dark-shadow), inset -6px -6px 12px var(--main);
+}
+
+.neumorphic-input {
+    border: none;
+    border-radius: 2rem;
+    background: var(--light-shadow);
+    box-shadow: inset 3px 3px 5px var(--dark-shadow), inset -3px -3px 5px var(--main);
+    padding: 0.75rem 1rem;
+    width: 100%;
+    text-align: right;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: start; /* Align items to the start of the container */
+}
+
+.user-avatar {
+    margin-bottom: 0.5rem; /* Optional: Adds some space between the icon and the text */
+    margin-left: 95%;
+}
+
+
+.user-info > div {
+    margin-bottom: 1rem; /* Optional: Adds some space between stacked elements */
+}
+
+.user-avatar {
+    position: relative;
+    justify-self: end;
+}
+
+.username {
+    position: relative;
+}
+
+.post-content, .self-post-content {
+    display: grid;
+}
+
+.post-image {
+    max-width: 100%;
+    justify-self: center;
+}
+
+.smart-bar-spacer {
+    padding-top: env(safe-area-inset-top);
+}
+
+.product-name {
+    text-align: center;
+}
+
+.search-bar {
+    max-width: 50%;
+}
+
+.nav-button {
+    font-size: 1.5rem;
+}
+
+.nav-button-main {
+    font-size: 2.5rem;
+}
