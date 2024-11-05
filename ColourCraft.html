@@ -1,0 +1,185 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ColourCraft</title>
+    <script src="https://unpkg.com/react/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Comic Neue', cursive;
+        }
+        .neumorphic {
+            background: #e0e0e0;
+            box-shadow: 7px 7px 15px #bebebe, -7px -7px 15px #ffffff;
+        }
+        .neumorphic-inset {
+            background: #e0e0e0;
+            box-shadow: 0px 0px 50px grey;
+        }
+        .text-shadow {
+            text-shadow:    1px 1px 2px rgba(0, 0, 0, 0.5),
+                            2px 2px 4px rgba(0, 0, 0, 0.5),
+                            4px 4px 8px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-blue-50">
+    <div id="root" class="p-4"></div>
+    <script type="text/babel">
+        const { useState } = React;
+
+        const initialColors = [
+            { name: 'Red', hex: '#FF0000' },
+            { name: 'Blue', hex: '#0000FF' },
+            { name: 'Yellow', hex: '#FFFF00' }
+        ];
+
+        const secondaryColors = {
+            '#FF0000#0000FF': { name: 'Purple', hex: '#800080' },
+            '#0000FF#FF0000': { name: 'Purple', hex: '#800080' },
+            '#FF0000#FFFF00': { name: 'Orange', hex: '#FFA500' },
+            '#FFFF00#FF0000': { name: 'Orange', hex: '#FFA500' },
+            '#0000FF#FFFF00': { name: 'Green', hex: '#008000' },
+            '#FFFF00#0000FF': { name: 'Green', hex: '#008000' }
+        };
+
+        const tertiaryColors = {
+            '#FF0000#FFA500': { name: 'Vermillion', hex: '#E34234' },
+            '#FFA500#FF0000': { name: 'Vermillion', hex: '#E34234' },
+            '#FFFF00#FFA500': { name: 'Amber', hex: '#FFBF00' },
+            '#FFA500#FFFF00': { name: 'Amber', hex: '#FFBF00' },
+            '#FFFF00#008000': { name: 'Chartreuse', hex: '#7FFF00' },
+            '#008000#FFFF00': { name: 'Chartreuse', hex: '#7FFF00' },
+            '#0000FF#008000': { name: 'Teal', hex: '#008080' },
+            '#008000#0000FF': { name: 'Teal', hex: '#008080' },
+            '#0000FF#800080': { name: 'Indigo', hex: '#4B0082' },
+            '#800080#0000FF': { name: 'Indigo', hex: '#4B0082' },
+            '#FF0000#800080': { name: 'Magenta', hex: '#FF00FF' },
+            '#800080#FF0000': { name: 'Magenta', hex: '#FF00FF' }
+        };
+
+        const ColorButton = ({ color, onDragStart }) => (
+            <div
+                className="w-24 h-24 rounded-full m-2 neumorphic flex items-center justify-center"
+                style={{ backgroundColor: color.hex }}
+                draggable
+                onDragStart={(e) => onDragStart(e, color)}
+            >
+                <span className="text-white font-bold text-shadow">{color.name}</span>
+            </div>
+        );
+
+        const ColorMixingGame = () => {
+            const [selectedColors, setSelectedColors] = useState([]);
+            const [mixedColor, setMixedColor] = useState('#FFFFFF');
+            const [availableColors, setAvailableColors] = useState(initialColors);
+
+            const mixColors = (colors) => {
+                if (colors.length === 0) return '#FFFFFF';
+                if (colors.length === 1) return colors[0].hex;
+
+                const colorKeys = colors.map(color => color.hex).sort().join('');
+                if (secondaryColors[colorKeys]) {
+                    return secondaryColors[colorKeys].hex;
+                }
+                if (tertiaryColors[colorKeys]) {
+                    return tertiaryColors[colorKeys].hex;
+                }
+
+                const mixed = colors.reduce((acc, color) => {
+                    acc.r += parseInt(color.hex.slice(1, 3), 16);
+                    acc.g += parseInt(color.hex.slice(3, 5), 16);
+                    acc.b += parseInt(color.hex.slice(5, 7), 16);
+                    return acc;
+                }, { r: 0, g: 0, b: 0 });
+
+                const colorCount = colors.length;
+                const r = Math.floor(mixed.r / colorCount).toString(16).padStart(2, '0');
+                const g = Math.floor(mixed.g / colorCount).toString(16).padStart(2, '0');
+                const b = Math.floor(mixed.b / colorCount).toString(16).padStart(2, '0');
+
+                return `#${r}${g}${b}`;
+            };
+
+            const handleColorClick = (color) => {
+                const newSelectedColors = [...selectedColors, color];
+                setSelectedColors(newSelectedColors);
+                const newMixedColor = mixColors(newSelectedColors);
+                setMixedColor(newMixedColor);
+
+                const colorKeys = newSelectedColors.map(color => color.hex).sort().join('');
+                if (secondaryColors[colorKeys] && !availableColors.some(c => c.hex === secondaryColors[colorKeys].hex)) {
+                    setAvailableColors([...availableColors, secondaryColors[colorKeys]]);
+                    handleClear();
+                }
+                if (tertiaryColors[colorKeys] && !availableColors.some(c => c.hex === tertiaryColors[colorKeys].hex)) {
+                    setAvailableColors([...availableColors, tertiaryColors[colorKeys]]);
+                    handleClear();
+                }
+            };
+
+            const handleClear = () => {
+                setSelectedColors([]);
+                setMixedColor('#FFFFFF');
+            };
+
+            const handleReset = () => {
+                location.reload();
+            }
+
+            const handleDragStart = (e, color) => {
+                e.dataTransfer.setData('color', JSON.stringify(color));
+            };
+
+            const handleDrop = (e) => {
+                e.preventDefault();
+                const color = JSON.parse(e.dataTransfer.getData('color'));
+                handleColorClick(color);
+            };
+
+            const handleDragOver = (e) => {
+                e.preventDefault();
+            };
+
+            return (
+                <div className="text-center">
+                    <h1 className="text-3xl font-bold mb-4">ColourCraft</h1>
+                    <p className="font-bold">A colour mixing game</p>
+                    <div className="flex justify-center flex-wrap mb-4">
+                        {availableColors.map(color => (
+                            <ColorButton key={color.name} color={color} onDragStart={handleDragStart} />
+                        ))}
+                    </div>
+                    <div
+                        className="w-48 h-48 rounded-full mx-auto mb-4 neumorphic-inset flex items-center justify-center"
+                        style={{ backgroundColor: mixedColor }}
+                        onDrop={handleDrop}
+                        onDragOver={handleDragOver}
+                    >
+                        <span className="text-white font-bold text-shadow">Mixed Colour</span>
+                    </div>
+                    <button
+                        className="bg-amber-500 text-white px-4 py-2 m-4 rounded-full neumorphic"
+                        onClick={handleClear}
+                    >
+                        Clear
+                    </button>
+                    <button
+                        className="bg-red-500 text-white px-4 py-2 m-4 rounded-full neumorphic"
+                        onClick={handleReset}
+                    >
+                        Reset
+                    </button>
+                </div>
+            );
+        };
+
+        ReactDOM.render(<ColorMixingGame />, document.getElementById('root'));
+    </script>
+</body>
+</html>
