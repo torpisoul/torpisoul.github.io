@@ -30,15 +30,7 @@
 </head>
 <body class="bg-blue-50">
     <div id="root" class="p-4"></div>
-    <script type="text/babel">
-        /* last try for the below code */
-        document.addEventListener('touchmove', function(event) {
-            if (window.scrollY === 0) {
-                event.preventDefault();
-            }
-        }, { passive: false });
-        /* hopefully that works? */
-        
+    <script type="text/babel">        
         const { useState } = React;
 
         const initialColors = [
