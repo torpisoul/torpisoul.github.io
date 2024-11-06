@@ -1,4 +1,7 @@
 <html lang="en">
+<!-- add guidance for secondary colours -->
+<!-- keep primary colours, secondary colours and tertiary colours separate -->
+<!-- when a new colour is found, leave that colour in the mixing tray for a few seconds and play a celebration animation on the page -->
 
 <head>
     <meta charset="UTF-8">
@@ -16,65 +19,75 @@
         /* title styling */
         /* Add to your existing style section */
         .rainbow-title {
-    font-size: 3.5rem;
-    font-weight: bold;
-    background-image: linear-gradient(
-        to right,
-        #FF0000, /* Red */
-        #FFA500, /* Orange */
-        #FFFF00, /* Yellow */
-        #008000, /* Green */
-        #0000FF, /* Blue */
-        #4B0082, /* Indigo */
-        #800080  /* Purple */
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 200% auto;
-    animation: rainbow 5s linear infinite;
-    position: relative;
-    z-index: 1;
-}
+            font-size: 3.5rem;
+            font-weight: bold;
+            background-image: linear-gradient(to right,
+                    #FF0000,
+                    /* Red */
+                    #FFA500,
+                    /* Orange */
+                    #FFFF00,
+                    /* Yellow */
+                    #008000,
+                    /* Green */
+                    #0000FF,
+                    /* Blue */
+                    #4B0082,
+                    /* Indigo */
+                    #800080
+                    /* Purple */
+                );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: rainbow 5s linear infinite;
+            position: relative;
+            z-index: 1;
+        }
 
-.title-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 20px;
-    transform: skew(-5deg);
-    box-shadow: 
-        0 0 10px rgba(255, 0, 0, 0.3),
-        0 0 20px rgba(0, 255, 0, 0.3),
-        0 0 30px rgba(0, 0, 255, 0.3);
-    z-index: 0;
-}
+        .title-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            transform: skew(-5deg);
+            box-shadow:
+                0 0 10px rgba(255, 0, 0, 0.3),
+                0 0 20px rgba(0, 255, 0, 0.3),
+                0 0 30px rgba(0, 0, 255, 0.3);
+            z-index: 0;
+        }
 
-.title-container {
-    position: relative;
-    padding: 20px;
-    margin-bottom: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+        .title-container {
+            position: relative;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-/* Make sure the letters inherit the gradient */
-.title-letter {
-    display: inline-block;
-    transform-origin: center;
-    position: relative;
-    background-image: inherit;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
+        /* Make sure the letters inherit the gradient */
+        .title-letter {
+            display: inline-block;
+            transform-origin: center;
+            position: relative;
+            background-image: inherit;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-@keyframes rainbow {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 200% 50%; }
-}
+        @keyframes rainbow {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            100% {
+                background-position: 200% 50%;
+            }
+        }
 
         .sparkle {
             position: absolute;
@@ -164,15 +177,18 @@
         }
 
         .button-bar {
-            display: inline-flex;
+            display: flex;
+            justify-content: space-evenly;
+            padding: 0.5rem;
         }
-
+        .button-bar-button {
+            border-radius: 5rem;
+            height: 5vh;
+            width: 25vw;
+        }
         .colour-button {
-            user-select: none;
-            -webkit-user-select: none;
-            -webkit-touch-callout: none;
-            width: 5rem;
-            height: 3rem;
+            width: 26vw;
+            height: 6vh;
             margin: 0.5rem;
             display: flex;
             justify-content: center;
@@ -307,6 +323,18 @@
                 location.reload();
             };
 
+            const handleFullscreen = () => {
+                if (!document.fullscreenElement) {
+                    // Request fullscreen
+                    document.documentElement.requestFullscreen().catch(err => {
+                        console.error(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+                    });
+                } else {
+                    // Exit fullscreen
+                    document.exitFullscreen();
+                }
+            };
+
             // Add this useEffect for animations
             React.useEffect(() => {
                 // Split text animation
@@ -415,20 +443,20 @@
                     <div className="bottom-bar">
                         <div className="button-bar">
                             <button
-                                className="bg-amber-500 text-white px-4 py-2 m-4 rounded-full neumorphic"
+                                className="neumorphic button-bar-button"
                                 onClick={handleClear}
                             >
                                 Clear
                             </button>
                             <button
-                                className="bg-red-500 text-white px-4 py-2 m-4 rounded-full neumorphic"
+                                className="neumorphic button-bar-button"
                                 onClick={handleReset}
                             >
                                 Reset
                             </button>
                             <button
-                                className="bg-black-500 text-white px-4 py-2 m-4 rounded-full neumorphic"
-                                onClick={handleReset}
+                                className="neumorphic button-bar-button"
+                                onClick={handleFullscreen}
                             >
                                 Fullscreen
                             </button>
