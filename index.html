@@ -10,6 +10,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        #root {
+            width: 100vw; /* Full width */
+            height: 100vh; /* Full height */
+            position: relative; /* Positioning context for child elements */
+            overflow: hidden; /* Prevent child elements from overflowing */
+        }
+        html, body {
+            height: 100%;
+            overflow: hidden; /* Prevent scrolling */
+            margin: 0;       /* Remove default margin */
+            padding: 0;      /* Remove default padding */
+        }
         body {
             font-family: 'Comic Neue', cursive;
         }
@@ -25,6 +37,40 @@
             text-shadow:    1px 1px 2px rgba(0, 0, 0, 0.5),
                             2px 2px 4px rgba(0, 0, 0, 0.5),
                             4px 4px 8px rgba(0, 0, 0, 0.5);
+        }
+        .bottom-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+        .button-bar {
+            display: inline-flex;
+        }
+        .colour-button {
+            width: 5rem;
+            height: 3rem;
+            margin: 0.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 2rem;
+        }
+        .game-title {
+            display: flex;
+            justify-content: center;
+            flex-wrap: nowrap;
+            flex-direction: column;
+        }
+        .mix-palette {
+            display: flex;
+            height: 32vh;
+            width: 80vw;
+            border-radius: 10rem;
+            justify-content: center;
+            align-items: center;
+            margin-left: auto;
+            margin-right: auto;
         }
     </style>
 </head>
@@ -65,7 +111,7 @@
 
         const ColorButton = ({ color, onDragStart }) => (
             <div
-                className="w-24 h-24 rounded-full m-2 neumorphic flex items-center justify-center"
+                className="colour-button neumorphic"
                 style={{ backgroundColor: color.hex }}
                 draggable
                 onDragStart={(e) => onDragStart(e, color)}
@@ -132,6 +178,11 @@
                 location.reload();
             }
 
+            // this will hopefully prevent user from pulling down to refresh browser (mobile)
+            document.addEventListener('touchmove', function(event) {
+                event.preventDefault(); // Prevent the default touchmove behavior
+            }, { passive: false });
+            
             const handleDragStart = (e, color) => {
                 e.dataTransfer.setData('color', JSON.stringify(color));
             };
@@ -146,35 +197,62 @@
                 e.preventDefault();
             };
 
+            function openFullscreen() {
+                const elem = document.documentElement; // or your specific game container
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.mozRequestFullScreen) { // Firefox
+                    elem.mozRequestFullScreen();
+                } else if (elem.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                    elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) { // IE/Edge
+                    elem.msRequestFullscreen();
+                }
+            }
+
+// Call this function when you want to enter fullscreen mode
+
             return (
                 <div className="text-center">
-                    <h1 className="text-3xl font-bold mb-4">ColourCraft</h1>
-                    <p className="font-bold">A colour mixing game</p>
-                    <div className="flex justify-center flex-wrap mb-4">
+                    <div class="game-title">
+                        <h1 className="text-3xl font-bold">ColourCraft</h1>
+                    </div>
+                    <div className="flex justify-center flex-wrap">
                         {availableColors.map(color => (
                             <ColorButton key={color.name} color={color} onDragStart={handleDragStart} />
                         ))}
                     </div>
-                    <div
-                        className="w-48 h-48 rounded-full mx-auto mb-4 neumorphic-inset flex items-center justify-center"
-                        style={{ backgroundColor: mixedColor }}
-                        onDrop={handleDrop}
-                        onDragOver={handleDragOver}
-                    >
-                        <span className="text-white font-bold text-shadow">Mixed Colour</span>
+                    <div class="bottom-bar">
+                        <div
+                            className="mix-palette neumorphic-inset"
+                            style={{ backgroundColor: mixedColor }}
+                            onDrop={handleDrop}
+                            onDragOver={handleDragOver}
+                        >
+                            <span className="text-white font-bold text-shadow">Mixed Colour</span>
+                        </div>
+                        
+                        <div class="button-bar">
+                            <button
+                                className="bg-amber-500 text-white px-4 py-2 m-4 rounded-full neumorphic"
+                                onClick={handleClear}
+                            >
+                                Clear
+                            </button>
+                            <button
+                                className="bg-red-500 text-white px-4 py-2 m-4 rounded-full neumorphic"
+                                onClick={handleReset}
+                            >
+                                Reset
+                            </button>
+                            <button
+                                className="bg-black-500 text-white px-4 py-2 m-4 rounded-full neumorphic"
+                                onClick={handleReset}
+                            >
+                                Fullscreen
+                            </button>
+                        </div>  
                     </div>
-                    <button
-                        className="bg-amber-500 text-white px-4 py-2 m-4 rounded-full neumorphic"
-                        onClick={handleClear}
-                    >
-                        Clear
-                    </button>
-                    <button
-                        className="bg-red-500 text-white px-4 py-2 m-4 rounded-full neumorphic"
-                        onClick={handleReset}
-                    >
-                        Reset
-                    </button>
                 </div>
             );
         };
