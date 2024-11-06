@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,49 +8,167 @@
     <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    </link>
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        /* title styling */
+        /* Add to your existing style section */
+        .rainbow-title {
+    font-size: 3.5rem;
+    font-weight: bold;
+    background-image: linear-gradient(
+        to right,
+        #FF0000, /* Red */
+        #FFA500, /* Orange */
+        #FFFF00, /* Yellow */
+        #008000, /* Green */
+        #0000FF, /* Blue */
+        #4B0082, /* Indigo */
+        #800080  /* Purple */
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% auto;
+    animation: rainbow 5s linear infinite;
+    position: relative;
+    z-index: 1;
+}
+
+.title-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    transform: skew(-5deg);
+    box-shadow: 
+        0 0 10px rgba(255, 0, 0, 0.3),
+        0 0 20px rgba(0, 255, 0, 0.3),
+        0 0 30px rgba(0, 0, 255, 0.3);
+    z-index: 0;
+}
+
+.title-container {
+    position: relative;
+    padding: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Make sure the letters inherit the gradient */
+.title-letter {
+    display: inline-block;
+    transform-origin: center;
+    position: relative;
+    background-image: inherit;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@keyframes rainbow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background-color: white;
+            pointer-events: none;
+        }
+
+        /* Add to your existing style section */
+        .title-container:hover .rainbow-title {
+            animation: rainbow 2s linear infinite;
+        }
+
+        .title-container:hover .title-background {
+            transform: skew(-8deg) scale(1.05);
+            transition: transform 0.3s ease;
+        }
+
+        .title-letter:hover {
+            animation: bounce 0.5s ease infinite;
+            cursor: pointer;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* end of title styling */
+
         #root {
-            width: 100vw; /* Full width */
-            height: 100vh; /* Full height */
-            position: relative; /* Positioning context for child elements */
-            overflow: hidden; /* Prevent child elements from overflowing */
+            width: 100vw;
+            /* Full width */
+            height: 100vh;
+            /* Full height */
+            position: relative;
+            /* Positioning context for child elements */
+            overflow: hidden;
+            /* Prevent child elements from overflowing */
         }
-        html, body {
+
+        html,
+        body {
             height: 100%;
-            overflow: hidden; /* Prevent scrolling */
-            margin: 0;       /* Remove default margin */
-            padding: 0;      /* Remove default padding */
+            overflow: hidden;
+            /* Prevent scrolling */
+            margin: 0;
+            /* Remove default margin */
+            padding: 0;
+            /* Remove default padding */
         }
+
         body {
             font-family: 'Comic Neue', cursive;
         }
+
         .neumorphic {
             background: #e0e0e0;
             box-shadow: 7px 7px 15px #bebebe, -7px -7px 15px #ffffff;
         }
+
         .neumorphic-inset {
             background: #e0e0e0;
             box-shadow: 0px 0px 50px grey;
         }
+
         .text-shadow {
-            text-shadow:    1px 1px 2px rgba(0, 0, 0, 0.5),
-                            2px 2px 4px rgba(0, 0, 0, 0.5),
-                            4px 4px 8px rgba(0, 0, 0, 0.5);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5),
+                2px 2px 4px rgba(0, 0, 0, 0.5),
+                4px 4px 8px rgba(0, 0, 0, 0.5);
         }
+
         .bottom-bar {
             position: fixed;
             bottom: 0;
             left: 0;
             width: 100%;
         }
+
         .button-bar {
             display: inline-flex;
         }
+
         .colour-button {
-            touch-action: none; /* Prevents default touch actions */
-            user-select: none; /* Prevents text selection during drag */
+            user-select: none;
             -webkit-user-select: none;
             -webkit-touch-callout: none;
             width: 5rem;
@@ -60,18 +179,18 @@
             align-items: center;
             border-radius: 2rem;
         }
-        .colour-button:active {
-            cursor: grabbing;
-        }
+
         .game-title {
             display: flex;
             justify-content: center;
             flex-wrap: nowrap;
             flex-direction: column;
         }
+
         .palette-div {
             padding: 1rem;
         }
+
         .mix-palette {
             display: flex;
             height: 32vh;
@@ -84,9 +203,10 @@
         }
     </style>
 </head>
+
 <body class="bg-blue-50">
     <div id="root" class="p-4"></div>
-    <script type="text/babel">        
+    <script type="text/babel">
         const { useState } = React;
 
         const initialColors = [
@@ -119,12 +239,11 @@
             '#800080#FF0000': { name: 'Magenta', hex: '#FF00FF' }
         };
 
-        const ColorButton = ({ color, onDragStart }) => (
+        const ColorButton = ({ color, onClick }) => (
             <div
                 className="colour-button neumorphic"
                 style={{ backgroundColor: color.hex }}
-                draggable
-                onDragStart={(e) => onDragStart(e, color)}
+                onClick={() => onClick(color)}
             >
                 <span className="text-white font-bold text-shadow">{color.name}</span>
             </div>
@@ -186,63 +305,115 @@
 
             const handleReset = () => {
                 location.reload();
-            }
-
-            const handleDragStart = (e, color) => {
-                e.dataTransfer.setData('color', JSON.stringify(color));
             };
 
-            const handleDrop = (e) => {
-                e.preventDefault();
-                const color = JSON.parse(e.dataTransfer.getData('color'));
-                handleColorClick(color);
+            // Add this useEffect for animations
+            React.useEffect(() => {
+                // Split text animation
+                const text = "ColourCraft";
+                const titleElement = document.querySelector('.rainbow-title');
+                titleElement.innerHTML = text.split('').map(letter =>
+                    `<span class="title-letter">${letter}</span>`
+                ).join('');
+
+                // Wobble animation
+                const letters = document.querySelectorAll('.title-letter');
+
+                const wobbleAnimation = anime({
+                    targets: '.title-letter',
+                    translateY: [-3, 3],
+                    translateX: [-2, 2],
+                    rotate: [-5, 5],
+                    duration: 1000,
+                    easing: 'easeInOutSine',
+                    loop: true,
+                    delay: anime.stagger(100),
+                    direction: 'alternate'
+                });
+
+                // Sparkle effect
+                const createSparkle = () => {
+                    const sparkle = document.createElement('div');
+                    sparkle.className = 'sparkle';
+                    const titleContainer = document.querySelector('.title-container');
+                    titleContainer.appendChild(sparkle);
+
+                    const startX = Math.random() * titleContainer.offsetWidth;
+                    const startY = Math.random() * titleContainer.offsetHeight;
+
+                    sparkle.style.left = `${startX}px`;
+                    sparkle.style.top = `${startY}px`;
+
+                    anime({
+                        targets: sparkle,
+                        opacity: [1, 0],
+                        scale: [0, 1],
+                        translateY: -20,
+                        duration: 1000,
+                        easing: 'easeOutExpo',
+                        complete: () => {
+                            sparkle.remove();
+                        }
+                    });
+                };
+
+                // Create sparkles periodically
+                const sparkleInterval = setInterval(createSparkle, 500);
+
+                // Cleanup
+                return () => {
+                    wobbleAnimation.pause();
+                    clearInterval(sparkleInterval);
+                };
+            }, []);
+
+            // Add this to your ColorMixingGame component
+            const playPopSound = () => {
+                const audio = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-positive-interface-beep-221.mp3');
+                audio.volume = 0.2;
+                audio.play();
             };
 
-            const handleDragOver = (e) => {
-                e.preventDefault();
-            };
+            // Add onClick handlers to the letters
+            React.useEffect(() => {
+                const letters = document.querySelectorAll('.title-letter');
+                letters.forEach(letter => {
+                    letter.addEventListener('click', playPopSound);
+                });
 
-            function openFullscreen() {
-                const elem = document.documentElement; // or your specific game container
-                if (elem.requestFullscreen) {
-                    elem.requestFullscreen();
-                } else if (elem.mozRequestFullScreen) { // Firefox
-                    elem.mozRequestFullScreen();
-                } else if (elem.webkitRequestFullscreen) { // Chrome, Safari and Opera
-                    elem.webkitRequestFullscreen();
-                } else if (elem.msRequestFullscreen) { // IE/Edge
-                    elem.msRequestFullscreen();
-                }
-            }
+                return () => {
+                    letters.forEach(letter => {
+                        letter.removeEventListener('click', playPopSound);
+                    });
+                };
+            }, []);
 
-// Call this function when you want to enter fullscreen mode
-
+            // Replace your existing title div with this:
             return (
                 <div className="text-center">
-                    <div class="game-title">
-                        <h1 className="text-3xl font-bold neumorphic rounded-full">ColourCraft</h1>
+                    <div className="title-container">
+                        <div className="title-background"></div>
+                        <h1 className="rainbow-title">ColourCraft</h1>
                     </div>
-                    <div class="palette-div">
+                    <div className="palette-div">
                         <div
                             className="mix-palette neumorphic"
                             style={{ backgroundColor: mixedColor }}
-                            onDrop={handleDrop}
-                            onDragOver={handleDragOver}
-                            onTouchEnd={(e) => {
-                                e.preventDefault();
-                                // Handle touch end if needed
-                            }}
                         >
-                                <span className="text-white font-bold text-shadow">Mixed Colour</span>
-                            </div>
+                            <span className="text-white font-bold text-shadow">Mixed Colour</span>
                         </div>
+                    </div>
                     <div className="flex justify-center flex-wrap">
                         {availableColors.map(color => (
-                            <ColorButton key={color.name} color={color} onDragStart={handleDragStart} />
+                            <ColorButton
+                                key={color.name}
+                                color={color}
+                                onClick={handleColorClick}
+                            />
                         ))}
                     </div>
-                    <div class="bottom-bar">                     
-                        <div class="button-bar">
+                    <div className="bottom-bar">
+                        <div className="button-bar">
                             <button
                                 className="bg-amber-500 text-white px-4 py-2 m-4 rounded-full neumorphic"
                                 onClick={handleClear}
@@ -261,7 +432,7 @@
                             >
                                 Fullscreen
                             </button>
-                        </div>  
+                        </div>
                     </div>
                 </div>
             );
@@ -270,4 +441,5 @@
         ReactDOM.render(<ColorMixingGame />, document.getElementById('root'));
     </script>
 </body>
+
 </html>
