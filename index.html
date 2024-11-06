@@ -48,6 +48,10 @@
             display: inline-flex;
         }
         .colour-button {
+            touch-action: none; /* Prevents default touch actions */
+            user-select: none; /* Prevents text selection during drag */
+            -webkit-user-select: none;
+            -webkit-touch-callout: none;
             width: 5rem;
             height: 3rem;
             margin: 0.5rem;
@@ -56,11 +60,17 @@
             align-items: center;
             border-radius: 2rem;
         }
+        .colour-button:active {
+            cursor: grabbing;
+        }
         .game-title {
             display: flex;
             justify-content: center;
             flex-wrap: nowrap;
             flex-direction: column;
+        }
+        .palette-div {
+            padding: 1rem;
         }
         .mix-palette {
             display: flex;
@@ -178,11 +188,6 @@
                 location.reload();
             }
 
-            // this will hopefully prevent user from pulling down to refresh browser (mobile)
-            document.addEventListener('touchmove', function(event) {
-                event.preventDefault(); // Prevent the default touchmove behavior
-            }, { passive: false });
-            
             const handleDragStart = (e, color) => {
                 e.dataTransfer.setData('color', JSON.stringify(color));
             };
@@ -215,23 +220,28 @@
             return (
                 <div className="text-center">
                     <div class="game-title">
-                        <h1 className="text-3xl font-bold">ColourCraft</h1>
+                        <h1 className="text-3xl font-bold neumorphic rounded-full">ColourCraft</h1>
                     </div>
+                    <div class="palette-div">
+                        <div
+                            className="mix-palette neumorphic"
+                            style={{ backgroundColor: mixedColor }}
+                            onDrop={handleDrop}
+                            onDragOver={handleDragOver}
+                            onTouchEnd={(e) => {
+                                e.preventDefault();
+                                // Handle touch end if needed
+                            }}
+                        >
+                                <span className="text-white font-bold text-shadow">Mixed Colour</span>
+                            </div>
+                        </div>
                     <div className="flex justify-center flex-wrap">
                         {availableColors.map(color => (
                             <ColorButton key={color.name} color={color} onDragStart={handleDragStart} />
                         ))}
                     </div>
-                    <div class="bottom-bar">
-                        <div
-                            className="mix-palette neumorphic-inset"
-                            style={{ backgroundColor: mixedColor }}
-                            onDrop={handleDrop}
-                            onDragOver={handleDragOver}
-                        >
-                            <span className="text-white font-bold text-shadow">Mixed Colour</span>
-                        </div>
-                        
+                    <div class="bottom-bar">                     
                         <div class="button-bar">
                             <button
                                 className="bg-amber-500 text-white px-4 py-2 m-4 rounded-full neumorphic"
